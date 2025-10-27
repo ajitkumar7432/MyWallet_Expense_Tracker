@@ -1,0 +1,150 @@
+/* 🌈 COLOR VARIABLES — support both themes */
+:root {
+  /* Dark theme */
+  --third: #121212;       /* Sidebar background */
+  --second: #ffffff;      /* Text for dark mode */
+  --hover: #ffd700;       /* Accent / hover color */
+}
+
+.light-theme {
+  /* Light theme overrides */
+  --third: #ffffff;
+  --second: #1a1a1a;
+  --hover: #007bff;
+}
+
+/* ---------------------------- */
+/* 🌟 Sidebar Base Styling */
+/* ---------------------------- */
+.user-panel .side-bar {
+  min-width: 280px;
+  max-width: 100%;
+  transition: all 0.4s ease-in-out;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: var(--third);
+  min-height: 100vh;
+  box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-panel .user-content {
+  width: 100%;
+}
+
+/* ---------------------------- */
+/* Sidebar Menu Items */
+/* ---------------------------- */
+.user-panel .side-bar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 15px;
+}
+
+.user-panel .side-bar ul li {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  color: var(--second);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.user-panel .side-bar ul li:hover {
+  background-color: var(--hover);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.user-panel .side-bar ul li.active {
+  background-color: var(--hover);
+  color: black;
+  font-weight: 600;
+  box-shadow: inset 4px 0 0 var(--second);
+}
+
+/* Icons */
+.user-panel .side-bar ul li i {
+  margin-right: 10px;
+  color: var(--second);
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.user-panel .side-bar ul li:hover i,
+.user-panel .side-bar ul li.active i {
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Reset link styles */
+.nav-link {
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------------------- */
+/* 📱 Mobile Responsive Sidebar */
+/* ---------------------------- */
+.mobile { display: none; }
+.close-btn { display: none; }
+
+/* Toggle Button (hamburger) */
+.menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  background: var(--hover);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: black;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
+  transition: all 0.3s ease;
+}
+
+/* .menu:hover {
+  background: #e6b800;
+} */
+
+/* ---------------------------- */
+/* 📱 Media Query for Mobile */
+/* ---------------------------- */
+/* Tablet: reduce sidebar width for more content room */
+@media all and (max-width: 768px) {
+  .user-panel .side-bar {
+    position: fixed;
+    width: 80%;
+    height: 100vh;
+    left: -100%;
+    transition: left 0.4s ease-in-out;
+    box-shadow: 6px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .user-panel .side-bar.open {
+    left: 0;
+  }
+
+  .menu {
+    display: block; /* show toggle button */
+  }
+
+  .user-panel .side-bar.open + .menu {
+    left: 85%; /* move toggle to edge when sidebar open */
+  }
+}

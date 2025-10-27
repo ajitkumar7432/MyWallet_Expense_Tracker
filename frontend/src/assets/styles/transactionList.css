@@ -1,0 +1,97 @@
+/* 🌙 Dark Mode Finance Dashboard Style */
+.t-box {
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+/* Date label */
+.t-box .date {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(147, 51, 234, 0.1));
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    letter-spacing: 0.3px;
+    margin-bottom: 16px;
+}
+
+/* Transaction list container */
+.t-list {
+    border-radius: 16px;
+    background: transparent;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+/* Transaction rows */
+.t-list .t-row {
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.7));
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for interactivity */
+.t-list .t-row:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(145deg, rgba(99, 102, 241, 0.15), rgba(147, 51, 234, 0.15));
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+/* Left text (category + note) */
+.t-row-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.t-row-left p:first-of-type {
+    color: #f8fafc;
+    font-size: 15.5px;
+    font-weight: 600;
+}
+.t-row-left p:last-of-type {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Right side amount */
+.t-row-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.t-row-right p {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: right;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(148, 163, 184, 0.1));
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* Income / Expense visual difference */
+.t-row-right .income {
+    color: #4ade80;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.12), rgba(22, 163, 74, 0.12));
+    border-color: rgba(74, 222, 128, 0.3);
+}
+.t-row-right .expense {
+    color: #f87171;
+    background: linear-gradient(135deg, rgba(248, 113, 113, 0.12), rgba(220, 38, 38, 0.12));
+    border-color: rgba(248, 113, 113, 0.25);
+}
