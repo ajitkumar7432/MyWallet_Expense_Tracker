@@ -1,5 +1,9 @@
+/* ========================================
+   USER PANEL - FINTECH THEME
+   ======================================== */
+
 .user-panel {
-    background-color: var(--third);
+    background-color: var(--bg-primary);
     width: 100%;
     display: flex;
     align-items: stretch;
@@ -7,21 +11,24 @@
 }
 
 .user-panel .user-content {
-    /* Offset content below fixed header (72px) + comfortable gap */
     padding: 120px 17px 20px 300px;
     height: 100vh;
     overflow-y: auto;
 }
 
+/* ========================================
+   TRANSACTION FORM
+   ======================================== */
+
 .t-form {
     margin-top: 28px;
     margin-left: 0;
-    background: #ffffff;
+    background: var(--bg-secondary);
     padding: 28px 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    border: 1px solid #e5e7eb;
-    color: var(--text);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-yellow);
+    color: var(--text-primary);
     max-height: calc(100vh - 180px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -33,59 +40,63 @@
 }
 
 .t-form::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: var(--bg-primary);
     border-radius: 10px;
 }
 
 .t-form::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: var(--primary-yellow);
     border-radius: 10px;
 }
 
 .t-form::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: var(--orange-accent);
 }
 
+/* ========================================
+   FORM INPUTS
+   ======================================== */
+
 .t-form input:not([type='submit']) {
-    background: #f8fafc;
-    border: 1.5px solid #e2e8f0;
+    background: var(--bg-primary);
+    border: 2px solid var(--primary-yellow);
     padding: 12px 14px;
-    color: #1e293b;
+    color: var(--text-primary);
     border-radius: 8px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .t-form input:not([type='submit'])::placeholder {
-    color: #94a3b8;
+    color: var(--text-secondary);
+    opacity: 0.6;
 }
 
 .t-form input:not([type='submit']):hover {
-    border-color: #cbd5e1;
+    border-color: var(--orange-accent);
 }
 
 .t-form input:not([type='submit']):focus {
-    background: #ffffff;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: var(--bg-secondary);
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
     outline: none;
     transform: translateY(-1px);
-    color: #1e293b;
 }
 
 .t-form .radio {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    color: var(--text);
+    color: var(--text-primary);
 }
 
 .t-form .radio input {
     width: max-content;
     margin-right: 7px;
     border-radius: 50%;
-    accent-color: var(--second);
+    accent-color: var(--primary-yellow);
 }
 
 .t-form .radio input:focus {
@@ -98,14 +109,14 @@
     margin: 0;
     padding: 12px 14px;
     padding-right: 40px;
-    color: #1e293b;
-    background: #ffffff url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat;
+    color: var(--text-primary);
+    background: var(--bg-primary) url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC72C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat;
     background-position: right 12px center;
     background-size: 20px;
-    border: 1.5px solid #cbd5e1;
+    border: 2px solid var(--primary-yellow);
     border-radius: 8px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -114,42 +125,38 @@
 }
 
 .t-form select:hover {
-    border-color: #94a3b8;
-    background-color: #ffffff;
+    border-color: var(--orange-accent);
 }
 
 .t-form select:focus {
-    background-color: #ffffff;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
     outline: none;
     transform: translateY(-1px);
-    color: #1e293b;
 }
 
-/* Placeholder state: when no value selected (thanks to required attribute) */
 .t-form select:invalid {
-    color: #94a3b8;
-}
-
-/* Once a real option is chosen */
-.t-form select:valid {
-    color: #1e293b;
+    opacity: 0.7;
 }
 
 .t-form select option {
     padding: 10px;
-    background: #ffffff;
-    color: #0f172a !important; /* force readable dark text on white dropdown */
-    font-weight: 500;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .t-form small {
-    color: #ef4444;
+    color: var(--red-error);
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 4px;
 }
+
+
+/* ========================================
+   UTILITIES & FILTERS
+   ======================================== */
 
 .utils {
     width: 100%;
@@ -160,48 +167,47 @@
     gap: 20px;
 }
 
-/* Beautiful Filter Dropdown - All/Income/Expense */
+/* Filter Dropdown - Yellow/Orange Gradient */
 .utils select {
     min-width: 200px;
     padding: 12px 20px;
     padding-right: 45px;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    color: white;
-    border: none;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--orange-accent) 100%);
+    color: var(--black);
+    border: 2px solid var(--orange-accent);
     border-radius: 12px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: 
-        linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%),
-        url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        linear-gradient(135deg, var(--primary-yellow) 0%, var(--orange-accent) 100%),
+        url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, right 14px center;
     background-size: 100%, 18px;
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35), 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(255, 199, 44, 0.35);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     letter-spacing: 0.3px;
 }
 
 .utils select:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 6px 24px rgba(255, 199, 44, 0.5);
 }
 
 .utils select:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25), 0 4px 16px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 0 4px rgba(255, 199, 44, 0.25);
 }
 
 .utils select option {
-    background: #1e293b;
-    color: white;
+    background: var(--white);
+    color: var(--black);
     padding: 12px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .page {
@@ -209,18 +215,20 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: var(--second);
+    color: var(--text-primary);
     gap: 15px;
 }
 
 .type-select {
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    background-color: var(--third);
+    justify-content: stretch;
+    background-color: var(--bg-secondary);
     border-radius: 12px;
-    color: var(--text);
+    color: var(--text-primary);
+    border: 2px solid var(--primary-yellow);
+    overflow: hidden;
 }
 
 .utils input,
@@ -229,26 +237,26 @@
     width: 100%;
     max-width: 420px;
     height: auto;
-    background: rgba(30, 41, 59, 0.5);
-    color: #e2e8f0;
-    border: 1.5px solid rgba(71, 85, 105, 0.5);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--primary-yellow);
     border-radius: 12px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .utils input::placeholder,
 .page input::placeholder {
-    color: #64748b;
+    color: var(--text-secondary);
+    opacity: 0.6;
 }
 
 .utils input:focus,
 .page input:focus {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: #6366f1;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 4px rgba(255, 199, 44, 0.15);
     outline: none;
     transform: translateY(-1px);
 }
@@ -266,21 +274,21 @@
     padding: 11px 24px;
     margin: 0 5px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    color: white;
-    border: none;
-    font-weight: 600;
+    background: var(--primary-yellow);
+    color: var(--black);
+    border: 2px solid var(--orange-accent);
+    font-weight: 700;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35), 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 14px rgba(255, 199, 44, 0.35);
     letter-spacing: 0.4px;
 }
 
 .page-info button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 6px 24px rgba(255, 199, 44, 0.5);
+    background: var(--orange-accent);
 }
 
 .page-info button:active {
@@ -294,72 +302,89 @@
 }
 
 .type-select div {
-    padding: 7px;
-    font-size: 15px;
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 16px;
     text-align: center;
     cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    letter-spacing: 0.3px;
 }
 
 .type-select.form div {
     width: 50%;
-    margin-top: 25px;
+    margin-top: 0;
+    padding: 18px 20px;
 }
 
 .type-select div.active {
-    border-bottom: 2px solid var(--second);
-    background-color: var(--hover);
+    background-color: var(--primary-yellow);
+    color: var(--black);
+    box-shadow: inset 0 0 0 2px var(--orange-accent);
 }
 
 .type-select div:hover {
-    background-color: var(--hover);
+    background-color: var(--primary-yellow);
+    color: var(--black);
 }
 
 .t-form .input-box>label {
     font-size: 14px;
     margin-bottom: 8px;
-    color: var(--second);
-    font-weight: 600;
-    letter-spacing: -0.2px;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0.2px;
 }
 
 .t-form .input-box {
     margin: 8px 0;
 }
 
-.t-form input:not([type='submit']) {
-    color: var(--text);
-}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
 
 table {
     border-collapse: collapse;
     width: 100%;
     font-size: 14px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 table td,
 table th {
-    border-bottom: 1px solid var(--hover);
-    padding: 10px 8px;
+    border-bottom: 2px solid var(--primary-yellow);
+    padding: 12px 10px;
     text-align: left;
 }
 
 table tr:not(:first-of-type):hover {
-    background-color: var(--hover);
+    background-color: var(--primary-yellow);
+    color: var(--black);
 }
 
 table tr {
-    color: var(--text);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
 }
 
 table tr:first-of-type {
-    border-bottom: 1px solid var(--hover);
+    background: var(--primary-yellow);
+    color: var(--black);
+    border-bottom: 2px solid var(--orange-accent);
 }
 
 table th {
     margin-bottom: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: var(--second);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 13px;
 }
 
 table .expense,
@@ -367,25 +392,31 @@ table .income {
     height: 22px;
     width: 22px;
     border-radius: 50%;
-    background-color: red;
     margin-right: 10px;
     display: inline-block;
+    border: 2px solid var(--white);
+}
+
+table .expense {
+    background-color: var(--red-error);
 }
 
 table .income {
-    background-color: green;
+    background-color: var(--green-success);
 }
 
 table i:hover {
-    color: var(--main);
+    color: var(--orange-accent);
+    transform: scale(1.2);
 }
 
 table i:active {
-    color: white;
+    color: var(--primary-yellow);
 }
 
 table tr:not(:first-of-type) i {
     visibility: hidden;
+    transition: all 0.2s ease;
 }
 
 table tr:not(:first-of-type):hover i {
@@ -393,34 +424,48 @@ table tr:not(:first-of-type):hover i {
 }
 
 table td button {
-    padding: 2px 10px;
+    padding: 6px 14px;
     width: max-content;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 700;
 }
+
+/* ========================================
+   MESSAGE WRAPPER
+   ======================================== */
 
 .user-panel .msg-wrapper {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-
-    display: flex;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    border: 2px solid transparent;
 }
 
 .user-panel .msg-wrapper.success {
-    background-color: rgb(227, 255, 232);
-    color: green;
+    background-color: var(--green-success);
+    color: var(--white);
+    border-color: #27ae60;
 }
 
 .user-panel .msg-wrapper.fail {
-    background-color: rgb(255, 227, 227);
-    color: rgb(176, 0, 0);
+    background-color: var(--red-error);
+    color: var(--white);
+    border-color: #c62828;
 }
 
 .user-panel .msg-wrapper .msg p {
     flex: 1;
+    font-weight: 700;
 }
+
+/* ========================================
+   TRANSACTION BUTTONS
+   ======================================== */
 
 .t-btn {
     display: flex;
@@ -430,7 +475,6 @@ table td button {
     margin-top: 24px;
 }
 
-/* Unify button look (applies to input, button, and .button class) */
 .t-btn .button,
 .t-btn button,
 .t-btn input[type='submit'] {
@@ -440,14 +484,14 @@ table td button {
     font-weight: 700;
     font-size: 15px;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .t-btn .button:hover,
 .t-btn button:hover,
 .t-btn input[type='submit']:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
 }
 
 .t-btn .button:active,
@@ -457,32 +501,40 @@ table td button {
 }
 
 .outline {
-    color: #3b82f6 !important;
+    color: var(--text-primary) !important;
     background: transparent !important;
-    border: 1.5px solid #3b82f6 !important;
+    border: 2px solid var(--primary-yellow) !important;
     box-shadow: none !important;
 }
 
 .outline:hover {
-    background: #eff6ff !important;
+    background: var(--primary-yellow) !important;
+    color: var(--black) !important;
 }
 
 .delete {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
-    border: 1.5px solid #ef4444 !important;
-    color: white !important;
-    box-shadow: 0 6px 12px rgba(239, 68, 68, 0.25) !important;
+    background: var(--red-error) !important;
+    border: 2px solid var(--red-error) !important;
+    color: var(--white) !important;
+    box-shadow: 0 6px 12px rgba(230, 57, 70, 0.3) !important;
 }
 
 .delete:hover {
-    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4) !important;
+    background: #c62828 !important;
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.5) !important;
 }
+
+/* ========================================
+   PROFILE IMAGE
+   ======================================== */
 
 .profile-img {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .profile-img input[type='file'] {
@@ -491,37 +543,59 @@ table td button {
 
 .profile-img label {
     font-size: 14px;
-    padding: 2px 5px;
+    padding: 8px 16px;
+    background: var(--primary-yellow);
+    color: var(--black);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.profile-img label:hover {
+    background: var(--orange-accent);
+    transform: scale(1.05);
 }
 
 .profile-img img {
     border-radius: 50%;
-    border: 5px solid var(--third);
-    outline: 2px solid var(--second);
+    border: 4px solid var(--primary-yellow);
+    outline: 2px solid var(--orange-accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .profile-img .action {
     width: max-content;
     display: inline-block;
     font-size: 13px;
-    color: var(--second);
-    text-decoration: underline;
+    color: var(--text-primary);
+    text-decoration: none;
     cursor: pointer;
+    font-weight: 600;
 }
+
+.profile-img .action:hover {
+    color: var(--orange-accent);
+    text-decoration: none;
+}
+
+/* ========================================
+   FORM SELECT (GENERAL)
+   ======================================== */
 
 form select {
     width: 100%;
     margin: 8px 0;
     padding: 12px 14px;
     padding-right: 40px;
-    color: var(--text);
-    background: #f8fafc url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat;
+    color: var(--text-primary);
+    background: var(--bg-primary) url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC72C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat;
     background-position: right 12px center;
     background-size: 20px;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid var(--primary-yellow);
     border-radius: 8px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -530,94 +604,117 @@ form select {
 }
 
 form select:hover {
-    border-color: #cbd5e1;
-    background-color: #ffffff;
+    border-color: var(--orange-accent);
 }
 
 form select:focus {
-    background-color: #ffffff;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
     outline: none;
 }
 
-/* Dropdown option styling */
 form select option {
     padding: 10px;
-    background: #ffffff;
-    color: #0f172a !important; /* ensure visibility regardless of theme */
-    font-weight: 500;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 form select:invalid {
-    color: #64748b;
+    opacity: 0.7;
 }
+
+
+/* ========================================
+   SAVED TRANSACTIONS - 3-COLUMN FIXED CARDS
+   Desktop/Tablet: 3 cards per row (360px each)
+   Mobile: stacks to single column under mobile breakpoint
+   ======================================== */
 
 .st-list {
     margin: 15px 0;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    justify-content: center; /* center the grid when wider */
+    gap: 24px;
 }
 
 .st-card {
-    background-color: var(--hover);
-    padding: 10px;
-    flex: 1 1 300px;
-    border-radius: 10px;
-    color: var(--text);
+    background: var(--bg-secondary);
+    padding: 20px;
+    width: 360px; /* fixed card width */
+    min-height: 200px;
+    height: auto;
+    border-radius: 12px;
+    color: var(--text-primary);
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-direction: column;
+    border: 2px solid var(--primary-yellow);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.st-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 199, 44, 0.3);
+    border-color: var(--orange-accent);
 }
 
 .st-card .topic {
     display: flex;
-    /* align-items:stretch; */
     justify-content: space-between;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
 }
 
-/* Button container styling */
+.st-card > p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 6px 0;
+}
+
 .st-card > div {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    margin-top: auto;
     flex-wrap: nowrap;
 }
 
 .st-card button,
 .st-top button {
     border-radius: 10px;
-    padding: 9px 18px;
-    width: 90px;
+    padding: 12px 20px;
+    min-width: 95px;
     font-size: 14px;
-    font-weight: 600;
-    background: #3b82f6;
-    color: white;
-    border: none;
+    font-weight: 700;
+    background: var(--primary-yellow);
+    color: var(--black);
+    border: 2px solid var(--orange-accent);
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 2px 8px rgba(255, 199, 44, 0.2);
     text-align: center;
 }
 
 .st-card button:hover,
 .st-top button:hover {
-    background: #2563eb;
+    background: var(--orange-accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 138, 0, 0.4);
 }
 
 .st-top h2 {
-    color: var(--text);
-    font-weight: 400;
+    color: var(--text-primary);
+    font-weight: 700;
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
-
 }
 
 .st-top {
@@ -629,97 +726,202 @@ form select:invalid {
 }
 
 .st-list .due.overdue {
-    color: rgb(255, 87, 87);
+    color: var(--red-error);
+    font-weight: 700;
 }
 
 .st-list .due.today {
-    color: rgb(252, 217, 129);
+    color: var(--orange-accent);
+    font-weight: 700;
 }
 
 .st-list i {
     margin-left: 10px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
 }
+
+.st-list i:hover {
+    color: var(--orange-accent);
+    transform: scale(1.2);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
 @media all and (max-width: 768px) {
     .utils {
-        padding: 0;
+        padding: 15px 0;
         flex-direction: column-reverse;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .utils select {
+        min-width: 100%;
+        width: 100%;
+        padding: 14px 20px;
+        padding-right: 45px;
+        font-size: 14px;
     }
 
     .page {
         flex-direction: column;
+        gap: 15px;
+        width: 100%;
     }
 
     .page-info {
         margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .page-info button {
+        padding: 10px 20px;
+        font-size: 13px;
     }
 
+    .type-select {
+        max-width: 100%;
+        width: 100%;
+    }
+    
     .type-select div {
-        width: max-content;
-        padding: 2px 15px;
-    }
-
-    .user-panel .user-content * {
-        font-size: 12px;
+        font-size: 14px;
+        padding: 14px 16px;
     }
 
     .user-panel .user-content {
-        /* Mobile header is 64px; leave extra gap */
-        padding: 104px 17px 20px;
+        padding: 70px 15px 20px 15px !important;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: flex-start;
     }
 
-    /* Center form on mobile */
     .t-form {
         width: 100%;
-        max-width: 500px;
-        margin: 28px auto;
+        max-width: 100%;
+        margin: 20px 0;
         max-height: calc(100vh - 150px);
+        padding: 20px 16px;
     }
 
-    /* Center type selector on mobile */
     .type-select.form {
         width: 100%;
-        max-width: 500px;
+        max-width: 100%;
         margin: 0 auto;
     }
-}
-
-/* Tablet responsiveness */
-@media all and (max-width: 1024px) {
-    .user-panel .user-content {
-        padding: 112px 16px 20px 260px; /* sidebar 240 + 20px breathing */
-    }
-}
-
-/* Small mobile optimizations */
-@media all and (max-width: 768px) {
-    .utils {
-        padding: 0;
-        flex-direction: column-reverse;
-    }
-
-    .page {
-        flex-direction: column;
-    }
-
-    .page-info {
+    
+    /* Mobile: switch grid to single column and make cards full-width */
+    .st-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
         margin: 15px 0;
+        width: 100%;
     }
 
-    .type-select div {
-        width: max-content;
-        padding: 2px 15px;
+    .st-card {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 16px;
     }
+    
+    .st-card .topic {
+        font-size: 15px;
+    }
+    
+    .st-card > p {
+        font-size: 13px;
+    }
+    
+    .st-card button,
+    .st-top button {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 80px;
+    }
+    
+    .st-top {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    .st-top h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .st-top button {
+        width: 100%;
+    }
+    
+    table {
+        font-size: 12px;
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+    
+    table td,
+    table th {
+        padding: 8px 6px;
+    }
+    
+    .utils input,
+    .page input {
+        max-width: 100%;
+        width: 100%;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+}
 
-    .user-panel .user-content * {
+@media all and (max-width: 480px) {
+    .user-panel .user-content {
+        padding: 65px 12px 15px 12px !important;
+    }
+    
+    .t-form {
+        padding: 16px 12px;
+    }
+    
+    .st-card {
+        padding: 14px;
+    }
+    
+    .st-card button {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: 70px;
+    }
+    
+    .page-info button {
+        padding: 8px 16px;
         font-size: 12px;
     }
-
-    .user-panel .user-content {
-        padding: 11vh 17px 20px;
+    
+    table {
+        font-size: 11px;
+    }
+    
+    table td,
+    table th {
+        padding: 6px 4px;
     }
 }
+
+@media all and (max-width: 1024px) {
+    .user-panel .user-content {
+        padding: 112px 16px 20px 260px;
+    }
+}
+

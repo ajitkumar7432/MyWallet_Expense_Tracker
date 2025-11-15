@@ -1,55 +1,88 @@
+/* ========================================
+   DASHBOARD - FINTECH THEME
+   Yellow Primary, Orange Accent, Green/Red for Values
+   ======================================== */
+
 .details {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: space-between;
     gap: 25px;
-    /* padding: 15px; */
     width: 100%;
     height: max-content;
     margin: 30px 0;
 }
+
 .details > div {
     flex: 1 1 200px;
     padding: 30px 20px;
-    display: flex; align-items: center;
+    display: flex; 
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px var(--text);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid transparent;
 }
+
 .details > div:hover {
-    opacity: 0.95;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
+
+/* Income Card - Green */
 .details > div:nth-of-type(1) {
-    background-color: #53d37d;
+    background: linear-gradient(135deg, #2ECC71 0%, #27ae60 100%);
+    border-color: #2ECC71;
 }
+
+/* Expense Card - Red */
 .details > div:nth-of-type(2) {
-    background-color: #ff6464;
+    background: linear-gradient(135deg, #E63946 0%, #c62828 100%);
+    border-color: #E63946;
 }
+
+/* Balance Card - Yellow */
 .details > div:nth-of-type(3) {
-    background-color: #5e85e6;
+    background: linear-gradient(135deg, #FFC72C 0%, #FF8A00 100%);
+    border-color: #FFC72C;
 }
+
+/* Budget/Extra Card - Orange */
 .details > div:nth-of-type(4) {
-    background-color: #fe50c4;
+    background: linear-gradient(135deg, #FF8A00 0%, #FFC72C 100%);
+    border-color: #FF8A00;
 }
-.details > div div {
-    display: flex;
-    flex-direction: column;
-}
+
 .details > div div {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    color: var(--text);
+    color: var(--white);
 }
+
+.details > div div h3,
+.details > div div p {
+    color: var(--white);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .details > div img {
     height: 70px;
     width: 70px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
+
+/* ========================================
+   DASHBOARD CHARTS
+   ======================================== */
+
 .dashboard-chart {
     width: 100%;
-    border: '1px solid grey';
     height: 350px;
     display: flex;
     align-items: center;
@@ -57,40 +90,62 @@
     justify-content: space-between;
     margin-top: 20px;
     min-height: 380px;
-    border-radius: 5px;
+    border-radius: 12px;
 }
+
 .dashboard-chart .chart {
     width: 50%;
     height: 100%;
-    padding: 15px;
-    box-shadow: 0 0 5px var(--main);
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    border: 2px solid var(--primary-yellow);
 }
+
 .dashboard-chart .chart .chart-top {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-  color: var(--second);
+    color: var(--text-primary);
 }
+
 .dashboard-chart .chart .chart-top button {
-    font-size: 15px;
-    padding: 2px 10px;
-    border-radius: 5px;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
     width: max-content;
+    background: var(--primary-yellow);
+    color: var(--black);
+    border: none;
+    font-weight: 700;
 }
+
+.dashboard-chart .chart .chart-top button:hover {
+    background: var(--orange-accent);
+}
+
 .dashboard-chart .chart h4 {
-    color: var(--second);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 18px;
 }
+
+/* ========================================
+   BUDGET FORM MODAL
+   ======================================== */
+
 .budget-form {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
     z-index: 1000;
@@ -98,28 +153,179 @@
     align-items: center;
     justify-content: center;
     display: none;
-
 }
+
 .budget-form.active {
     display: flex;
 }
+
 .budget-form form {
-    padding: 15px;
-    background-color: white;
+    padding: 25px;
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    border: 2px solid var(--primary-yellow);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    min-width: 400px;
 }
+
+.budget-form form h3 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-yellow);
+    padding-bottom: 10px;
+}
+
+/* ========================================
+   SELECT DROPDOWN
+   ======================================== */
 
 select {
     margin-top: 20px;
-    padding: 8px 20px;font-size: 15px;
-    color: var(--second);
-    border: 1px solid var(--hover);
-    border-radius: 5px;
-    background-color: var(--hover);
+    padding: 12px 20px;
+    font-size: 15px;
+    color: var(--text-primary);
+    border: 2px solid var(--primary-yellow);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
+
+select:hover {
+    border-color: var(--orange-accent);
+    background-color: var(--bg-hover);
+    color: var(--black);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
+}
+
+select option {
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: 600;
+}
+
 @media all and (max-width:1000px) {
-    .charts {
-        display: flex;  
-        color: #00a33c;
+    .dashboard-chart {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        gap: 15px;
+    }
+    
+    .dashboard-chart .chart {
+        width: 100%;
+        min-height: 350px;
     }
 }
+
+@media all and (max-width: 768px) {
+    .details {
+        gap: 15px;
+        margin: 20px 0;
+        width: 100%;
+    }
+    
+    .details > div {
+        flex: 1 1 100%;
+        padding: 20px 15px;
+        width: 100%;
+    }
+    
+    .details > div img {
+        height: 60px;
+        width: 60px;
+    }
+    
+    .dashboard-chart {
+        width: 100%;
+    }
+    
+    .dashboard-chart .chart {
+        padding: 16px;
+        min-height: 320px;
+        width: 100%;
+    }
+    
+    .dashboard-chart .chart h4 {
+        font-size: 16px;
+    }
+    
+    .dashboard-chart .chart .chart-top button {
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+    
+    select {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+    
+    .budget-form form {
+        min-width: 280px;
+        max-width: 90%;
+        margin: 0 15px;
+        padding: 20px;
+    }
+    
+    .budget-form form h3 {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .details {
+        gap: 12px;
+        margin: 15px 0;
+    }
+    
+    .details > div {
+        padding: 16px 12px;
+        gap: 15px;
+    }
+    
+    .details > div img {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .details > div div h3 {
+        font-size: 14px;
+    }
+    
+    .details > div div p {
+        font-size: 13px;
+    }
+    
+    .dashboard-chart .chart {
+        padding: 12px;
+        min-height: 280px;
+    }
+    
+    .dashboard-chart .chart h4 {
+        font-size: 15px;
+    }
+    
+    .dashboard-chart .chart .chart-top button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    select {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+    
+    .budget-form form {
+        min-width: 260px;
+        padding: 16px;
+    }
+}
+
 

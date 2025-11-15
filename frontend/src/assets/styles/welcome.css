@@ -1,36 +1,39 @@
-/* ---------------------------------- */
-/* Core Reset & Theme Variables       */
-/* ---------------------------------- */
+/* ========================================
+   WELCOME PAGE - FINTECH THEME
+   Yellow Primary, Bold & High-Contrast
+   ======================================== */
+
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #0a0f1a;
-  color: #fff;
+  font-family: 'Spinnaker', sans-serif;
+  background-color: var(--bg-primary, #000000);
+  color: var(--text-primary, #FFFFFF);
   height: 100%;
   overflow-x: hidden;
 }
 
-/* ---------------------------------- */
-/* Layout Styling                     */
-/* ---------------------------------- */
+/* ========================================
+   LAYOUT STYLING
+   ======================================== */
+
 .welcome-container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-image: url('../images/bg1.jpg'); /* Your background image */
+  background-image: url('../images/bg1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  padding: 3rem; /* slightly increased for spacing */
+  padding: 3rem;
 }
 
-/* Soft dark overlay for better text contrast */
+/* Dark overlay for better contrast */
 .welcome-container::before {
   content: '';
   position: absolute;
@@ -38,91 +41,175 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
 .content-box {
-  max-width: 700px; /* slightly wider */
+  max-width: 750px;
   z-index: 2;
+  padding: 30px;
+  border-radius: 16px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-/* ---------------------------------- */
-/* Headline & Text                    */
-/* ---------------------------------- */
+/* ========================================
+   HEADLINE & TEXT
+   ======================================== */
+
 .headline {
-  font-size: 2.5rem; /* increased */
+  font-size: 3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #FFC72C;
   margin-top: 1rem;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(255, 199, 44, 0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .subtext {
-  font-size: 1.1rem; /* slightly larger */
-  color: #b0b8c3;
-  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  margin-bottom: 3rem;
   line-height: 1.8;
-  max-width: 600px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 600;
 }
 
-/* ---------------------------------- */
-/* Buttons                            */
-/* ---------------------------------- */
+/* ========================================
+   BUTTONS
+   ======================================== */
+
 .btn-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.3rem;
+  gap: 1.5rem;
 }
 
 .btn {
-  width: 280px; /* increased button width */
-  padding: 16px 0; /* taller buttons */
+  width: 320px;
+  padding: 16px 0;
   border: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.3px;
+  text-transform: none;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* Primary Button */
+/* Primary Button - Yellow */
 .btn-primary {
-  background: #3a8dff;
-  color: white;
-  box-shadow: 0 0 15px rgba(58, 141, 255, 0.6);
+  background: #FFC72C;
+  color: #000000;
+  box-shadow: 0 6px 20px rgba(255, 199, 44, 0.6);
+  border: none;
 }
 
 .btn-primary:hover {
-  background: #5ba2ff;
-  box-shadow: 0 0 25px rgba(58, 141, 255, 0.9);
+  background: #FF8A00;
+  box-shadow: 0 8px 32px rgba(255, 199, 44, 0.8);
+  transform: translateY(-3px);
 }
 
-/* Secondary Button */
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary Button - White */
 .btn-secondary {
-  background: #ffffff;
-  color: #0a0f1a;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  background: #FFFFFF;
+  color: #000000;
+  border: none;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover {
-  background: #e6e6e6;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+  background: #F0F0F0;
+  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
 }
 
-/* ---------------------------------- */
-/* Optional Glow Animation             */
-/* ---------------------------------- */
-@keyframes subtleGlow {
-  0% { box-shadow: 0 0 10px rgba(58, 141, 255, 0.6); }
-  50% { box-shadow: 0 0 20px rgba(58, 141, 255, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(58, 141, 255, 0.6); }
+.btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   GLOW ANIMATION
+   ======================================== */
+
+@keyframes yellowGlow {
+  0% { 
+    box-shadow: 0 6px 20px rgba(255, 199, 44, 0.6);
+  }
+  50% { 
+    box-shadow: 0 8px 32px rgba(255, 199, 44, 0.9);
+  }
+  100% { 
+    box-shadow: 0 6px 20px rgba(255, 199, 44, 0.6);
+  }
 }
 
 .btn-primary {
-  animation: subtleGlow 3s ease-in-out infinite;
+  animation: yellowGlow 3s ease-in-out infinite;
 }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2.2rem;
+  }
+  
+  .subtext {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    width: 280px;
+    padding: 16px 0;
+    font-size: 1.1rem;
+  }
+  
+  .content-box {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-container {
+    padding: 1.5rem;
+  }
+  
+  .headline {
+    font-size: 1.8rem;
+  }
+  
+  .subtext {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    width: 240px;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+  
+  .content-box {
+    padding: 15px;
+    border-width: 2px;
+  }
+}
+

@@ -16,13 +16,49 @@ function IncomeVsExpenseChart({ data }) {
                     bottom: 10,
                 }}
             >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="monthName" fontSize='10px' />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="totalExpense" name='Expense' stroke="#ff0000" activeDot={{ r: 5 }} />
-                <Line type="monotone" dataKey="totalIncome" name='Income' stroke="#6aa412" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#FFC72C" opacity={0.2} />
+                <XAxis 
+                    dataKey="monthName" 
+                    fontSize='12px'
+                    fontWeight='600'
+                    stroke="#FFC72C"
+                />
+                <YAxis 
+                    fontSize='12px'
+                    fontWeight='600'
+                    stroke="#FFC72C"
+                />
+                <Tooltip 
+                    contentStyle={{
+                        backgroundColor: '#000000',
+                        border: '2px solid #FFC72C',
+                        borderRadius: '8px',
+                        color: '#FFFFFF',
+                        fontWeight: '600'
+                    }}
+                />
+                <Legend 
+                    wrapperStyle={{
+                        fontWeight: '700',
+                        fontSize: '14px'
+                    }}
+                />
+                <Line 
+                    type="monotone" 
+                    dataKey="totalExpense" 
+                    name='Expense' 
+                    stroke="#E63946" 
+                    strokeWidth={3}
+                    activeDot={{ r: 6, fill: '#E63946' }} 
+                />
+                <Line 
+                    type="monotone" 
+                    dataKey="totalIncome" 
+                    name='Income' 
+                    stroke="#2ECC71"
+                    strokeWidth={3}
+                    activeDot={{ r: 6, fill: '#2ECC71' }}
+                />
             </LineChart>
 
         </ResponsiveContainer>

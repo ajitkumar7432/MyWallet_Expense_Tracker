@@ -11,34 +11,89 @@
   font-family: "Spinnaker", sans-serif;
 }
 
+/* ========================================
+   STRICT FINTECH COLOR THEME
+   No Grey Allowed - Bold & High Contrast
+   ======================================== */
+
 .light {
-  --second: #4389df;
-  --third: #f7fbff;
-  --hover: #dbebff;
-  --main: #a4cdff;
+  /* Light Mode - White backgrounds with Yellow/Black accents */
+  --primary-yellow: #FFC72C;
+  --orange-accent: #FF8A00;
+  --green-success: #2ECC71;
+  --red-error: #E63946;
+  --black: #000000;
+  --white: #FFFFFF;
+  
+  /* Semantic mappings for light mode */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FFFFFF;
+  --bg-hover: #FFC72C;
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --border-color: #000000;
+  --accent-primary: #FFC72C;
+  --accent-secondary: #FF8A00;
 }
 
 .dark {
-  --second: #67a2eb;
-  --third: #031c3b;
-  --text: rgb(234, 234, 234);
-  --hover: #21314e;
-  --main: #3b4763;
+  /* Dark Mode - Black backgrounds with Yellow/Orange accents */
+  --primary-yellow: #FFC72C;
+  --orange-accent: #FF8A00;
+  --green-success: #2ECC71;
+  --red-error: #E63946;
+  --black: #000000;
+  --white: #FFFFFF;
+  
+  /* Semantic mappings for dark mode */
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --bg-hover: #FFC72C;
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFFFFF;
+  --border-color: #FFC72C;
+  --accent-primary: #FFC72C;
+  --accent-secondary: #FF8A00;
 }
+
+/* Legacy variable support - mapped to new theme */
+.light {
+  --second: #FFC72C;
+  --third: #FFFFFF;
+  --hover: #FFC72C;
+  --main: #FF8A00;
+  --text: #000000;
+}
+
+.dark {
+  --second: #FFC72C;
+  --third: #000000;
+  --text: #FFFFFF;
+  --hover: #FFC72C;
+  --main: #FF8A00;
+}
+
 ::selection {
-  background-color: var(--second);
-  color: var(--third);
+  background-color: var(--primary-yellow);
+  color: var(--black);
 }
+
 h1 {
-  color: var(--second);
+  color: var(--text-primary);
+  font-weight: 700;
 }
+
 h1.logo {
   font-family: "Tillana", system-ui;
   cursor: pointer;
+  color: var(--primary-yellow);
 }
+
 h1.logo:hover {
   text-decoration: none;
+  color: var(--orange-accent);
 }
+
 .logo span {
   display: inline-block;
   background-image: url('./assets/images/logo.png');
@@ -49,49 +104,95 @@ h1.logo:hover {
   margin-right: 8px;
 }
 
+/* ========================================
+   BUTTON SYSTEM - Yellow Primary
+   ======================================== */
+
 button, .button {
   text-align: center;
   padding: 12px 24px;
   min-width: 120px;
   border-radius: 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   border: none;
-  background: linear-gradient(135deg, var(--second) 0%, var(--second) 100%);
-  color: #ffffff;
+  background: var(--primary-yellow);
+  color: var(--black);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 199, 44, 0.3);
+  letter-spacing: 0.3px;
 }
 
 button:hover, .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(255, 199, 44, 0.5);
+  background: var(--orange-accent);
+  color: var(--black);
   text-decoration: none;
 }
 
 button:active, .button:active {
   transform: translateY(0);
 }
+
 .button {
   width: 100%;
   padding: 10px 0;
+  display: block;
 }
+
 button.loading, .button.loading {
   opacity: 0.7;
   pointer-events: none;
   cursor: not-allowed;
 }
+
 .button.outline {
   background: transparent;
-  border: 1.5px solid var(--second);
-  color: var(--second);
+  border: 2px solid var(--primary-yellow);
+  color: var(--text-primary);
   box-shadow: none;
 }
 
 .button.outline:hover {
-  background: rgba(67, 137, 223, 0.05);
+  background: var(--primary-yellow);
+  color: var(--black);
+  border-color: var(--primary-yellow);
 }
+
+/* Success Button - Green */
+.button.success,
+button.success {
+  background: var(--green-success);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.button.success:hover,
+button.success:hover {
+  background: #27ae60;
+  box-shadow: 0 8px 24px rgba(46, 204, 113, 0.5);
+}
+
+/* Error/Delete Button - Red */
+.button.error,
+button.error,
+.button.delete,
+button.delete {
+  background: var(--red-error);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.button.error:hover,
+button.error:hover,
+.button.delete:hover,
+button.delete:hover {
+  background: #c62828;
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.5);
+}
+
 main {
   display: flex;
   align-items: center;
@@ -100,9 +201,72 @@ main {
   height: 100dvh;
   flex-direction: column;
   gap: 25px;
+  background-color: var(--bg-primary);
 }
+
 main h3 {
   max-width: 800px;
   width: 100%;
   text-align: center;
+  color: var(--text-primary);
 }
+
+/* ========================================
+   MOBILE RESPONSIVE - GLOBAL
+   ======================================== */
+
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+  }
+  
+  h1.logo {
+    font-size: 20px;
+  }
+  
+  .logo span {
+    height: 32px;
+    width: 32px;
+  }
+  
+  button, .button {
+    padding: 10px 20px;
+    min-width: 100px;
+    font-size: 14px;
+  }
+  
+  main {
+    padding: 15px;
+  }
+  
+  main h3 {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+  
+  h1.logo {
+    font-size: 18px;
+  }
+  
+  .logo span {
+    height: 28px;
+    width: 28px;
+  }
+  
+  button, .button {
+    padding: 8px 16px;
+    min-width: 90px;
+    font-size: 13px;
+  }
+  
+  main h3 {
+    font-size: 14px;
+  }
+}
+

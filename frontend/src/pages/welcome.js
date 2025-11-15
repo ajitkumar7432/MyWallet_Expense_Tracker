@@ -8,15 +8,15 @@ function Welcome() {
       <div className="content-box">
         <Logo />
 
-        <h1 className="headline">Your Financial Security, Our Priority</h1>
+        <h1 className="headline">Track Smart, Spend Wise, Save More</h1>
         <p className="subtext">
-          Trust MyWallet to protect your assets. Bank-grade encryption and privacy
-          controls ensure your data is always safe.
+          Take control of your finances with MyWallet. Beautiful insights, powerful
+          budgets, and secure tracking help you achieve your financial goals.
         </p>
 
         <div className="btn-group">
           <Link to="/auth/register">
-            <button className="btn btn-primary">Securely Create Account</button>
+            <button className="btn btn-primary">Create Account</button>
           </Link>
           <Link to="/auth/login">
             <button className="btn btn-secondary">Log In</button>

@@ -1,63 +1,148 @@
+/* ========================================
+   HEADER - FINTECH THEME
+   ======================================== */
+
 .user-content .top {
     display: flex;
     width: calc(100% - 280px);
     padding: 15px;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid var(--hover);
-    color: var(--text);
+    border-bottom: 2px solid var(--primary-yellow);
+    color: var(--text-primary);
     position: fixed;
     top: 0;
     left: 280px;
-    background-color: var(--third);
+    background-color: var(--bg-primary);
     z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 .user-content .top .title {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;color: var(--text);
-}
-.profile{
-    display: flex;
     gap: 10px;
+    color: var(--text-primary);
+}
+
+.user-content .top .title h1 {
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.user-content .top .title i {
+    color: var(--primary-yellow);
+    font-size: 24px;
+}
+
+/* ========================================
+   PROFILE SECTION
+   ======================================== */
+
+.profile {
+    display: flex;
+    gap: 12px;
     align-items: center;
     justify-content: left;
     height: max-content;
-    padding: 0px 15px;
+    padding: 8px 15px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 2px solid var(--primary-yellow);
+    transition: all 0.3s ease;
 }
+
+.profile:hover {
+    background: var(--primary-yellow);
+    transform: scale(1.02);
+}
+
 .profile i {
     font-size: 35px;
-    color: var(--second);
+    color: var(--primary-yellow);
+    transition: all 0.3s ease;
 }
+
+.profile:hover i {
+    color: var(--black);
+}
+
 .profile div {
     display: flex;
     height: 100%;
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    
+    gap: 4px;
 }
+
 .profile div p {
     font-size: 15px;
-    color: var(--second);
+    color: var(--text-primary);
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
+
+.profile:hover div p {
+    color: var(--black);
+}
+
 .profile div p:last-of-type {
-    color: gray;
+    color: var(--text-secondary);
     font-size: 12px;
+    font-weight: 600;
+    opacity: 0.8;
 }
+
+.profile:hover div p:last-of-type {
+    color: var(--black);
+    opacity: 0.9;
+}
+
+/* ========================================
+   RESPONSIVE HEADER
+   ======================================== */
+
 @media all and (max-width: 768px) {
-    .user-content .top .profile{
-       display: none;
-    }
-    .user-content .top .title h1 {
-       margin-left: 40px;
-       font-size: 20px;
-    }
-    .user-content .top  {
+    .user-content .top {
         left: 0;
         width: 100%;
-        justify-content: left;
-        background-color: aqua;
+        padding: 12px 15px;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .user-content .top .title {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .user-content .top .title h1 {
+        font-size: 22px;
+    }
+    
+    .user-content .top .title i {
+        font-size: 22px;
+    }
+    
+    .user-content .top .profile {
+        display: none;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .user-content .top {
+        padding: 10px 12px;
+    }
+    
+    .user-content .top .title h1 {
+        font-size: 20px;
+    }
+    
+    .user-content .top .title i {
+        font-size: 20px;
     }
 }

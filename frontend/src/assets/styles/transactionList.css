@@ -1,21 +1,26 @@
-/* 🌙 Dark Mode Finance Dashboard Style */
+/* ========================================
+   TRANSACTION LIST - FINTECH THEME
+   Bold, High-Contrast Design
+   ======================================== */
+
 .t-box {
     margin-bottom: 32px;
     width: 100%;
 }
 
-/* Date label */
+/* Date label - Yellow Accent */
 .t-box .date {
     font-size: 14.5px;
-    font-weight: 600;
-    color: #cbd5e1;
-    padding: 8px 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 10px 16px;
     border-radius: 10px;
     display: inline-block;
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(147, 51, 234, 0.1));
-    border: 1px solid rgba(148, 163, 184, 0.15);
-    letter-spacing: 0.3px;
+    background: var(--primary-yellow);
+    border: 2px solid var(--orange-accent);
+    letter-spacing: 0.5px;
     margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(255, 199, 44, 0.3);
 }
 
 /* Transaction list container */
@@ -30,23 +35,30 @@
 /* Transaction rows */
 .t-list .t-row {
     padding: 18px 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 14px;
-    transition: all 0.25s ease;
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.7));
-    border: 1px solid rgba(71, 85, 105, 0.3);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    background: var(--bg-secondary);
+    border: 2px solid var(--primary-yellow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effect for interactivity */
 .t-list .t-row:hover {
     transform: translateY(-3px);
-    background: linear-gradient(145deg, rgba(99, 102, 241, 0.15), rgba(147, 51, 234, 0.15));
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+    background: var(--bg-hover);
+    border-color: var(--orange-accent);
+    box-shadow: 0 6px 16px rgba(255, 199, 44, 0.4);
+}
+
+/* On hover, force text to black for better emphasis (applies to category/description and amount)
+   This also ensures the same visual on dropdown-like lists that reuse .t-row */
+.t-list .t-row:hover .t-row-left p,
+.t-list .t-row:hover .t-row-right p {
+    color: var(--black) !important;
 }
 
 /* Left text (category + note) */
@@ -54,16 +66,21 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
+
 .t-row-left p:first-of-type {
-    color: #f8fafc;
-    font-size: 15.5px;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
+
 .t-row-left p:last-of-type {
-    color: #94a3b8;
+    color: var(--text-secondary);
     font-size: 13px;
+    font-weight: 600;
+    opacity: 0.8;
 }
 
 /* Right side amount */
@@ -72,26 +89,124 @@
     align-items: center;
     justify-content: center;
 }
+
 .t-row-right p {
-    font-size: 15.5px;
+    font-size: 16px;
     font-weight: 700;
-    color: #f1f5f9;
-    padding: 6px 12px;
+    color: var(--text-primary);
+    padding: 8px 14px;
     border-radius: 10px;
-    min-width: 80px;
+    min-width: 100px;
     text-align: right;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(148, 163, 184, 0.1));
-    border: 1px solid rgba(148, 163, 184, 0.15);
+    border: 2px solid transparent;
 }
 
-/* Income / Expense visual difference */
+/* Income - Green */
 .t-row-right .income {
-    color: #4ade80;
-    background: linear-gradient(135deg, rgba(74, 222, 128, 0.12), rgba(22, 163, 74, 0.12));
-    border-color: rgba(74, 222, 128, 0.3);
+    color: var(--white);
+    background: var(--green-success);
+    border-color: var(--green-success);
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
 }
+
+/* Expense - Red */
 .t-row-right .expense {
-    color: #f87171;
-    background: linear-gradient(135deg, rgba(248, 113, 113, 0.12), rgba(220, 38, 38, 0.12));
-    border-color: rgba(248, 113, 113, 0.25);
+    color: var(--white);
+    background: var(--red-error);
+    border-color: var(--red-error);
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.3);
 }
+
+/* Hover effects for amounts */
+.t-row:hover .t-row-right .income {
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.5);
+}
+
+.t-row:hover .t-row-right .expense {
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media all and (max-width: 768px) {
+    .t-box {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+    
+    .t-list {
+        width: 100%;
+    }
+    
+    .t-list .t-row {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .t-row-left {
+        width: 100%;
+    }
+    
+    .t-row-left p:first-of-type {
+        font-size: 15px;
+    }
+    
+    .t-row-left p:last-of-type {
+        font-size: 12px;
+    }
+    
+    .t-row-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .t-row-right p {
+        min-width: auto;
+        width: 100%;
+        text-align: left;
+        font-size: 15px;
+        padding: 6px 12px;
+    }
+    
+    .t-box .date {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .t-box {
+        width: 100%;
+    }
+    
+    .t-list .t-row {
+        padding: 12px 14px;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .t-row-left p:first-of-type {
+        font-size: 14px;
+    }
+    
+    .t-row-left p:last-of-type {
+        font-size: 11px;
+    }
+    
+    .t-row-right p {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    
+    .t-box .date {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
+    
+    .t-box {
+        margin-bottom: 20px;
+    }
+}
+

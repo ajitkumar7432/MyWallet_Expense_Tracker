@@ -1,133 +1,227 @@
-# Deployment Guide - Vercel
+# 🚀 MyWallet Deployment Guide - Render.com
 
-## Prerequisites
+## Deploy to Render.com - **FREE FOREVER** ⭐
 
-- GitHub account
-- Vercel account (sign up at https://vercel.com with GitHub)
+**Render.com** offers a **100% free tier that never expires** - perfect for your full-stack Spring Boot + React application!
 
-## Quick Deploy Steps
+### ✅ Why Render.com?
 
-### Option 1: Deploy via Vercel Dashboard (Recommended)
+- **FREE Forever**: No credit card required, no expiration
+- **PostgreSQL Database**: 1GB free database included
+- **Java Support**: Native Spring Boot support
+- **Auto HTTPS**: Free SSL certificates
+- **GitHub Integration**: Auto-deploy on every push
+- **Trusted**: Used by 500,000+ developers
+- **750 Hours/Month**: Enough to run your app 24/7
 
-1. **Push to GitHub** (run in PowerShell):
+**Only Limitation**: App sleeps after 15 minutes of inactivity (wakes in ~30 seconds when accessed)
+
+---
+
+## 📋 Step-by-Step Deployment (20 Minutes)
+
+### **Step 1: Push Code to GitHub**
+
+Open PowerShell and run:
 
 ```powershell
-cd D:\Extras\Fullstack-Expense-Tracker-main
+cd "d:\Extras\Fullstack-Expense-Tracker-main"
 git init
 git add .
-git commit -m "Initial commit - Expense Tracker"
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git commit -m "Initial commit - MyWallet for Render"
 git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/mywallet.git
 git push -u origin main
 ```
 
-2. **Deploy on Vercel**:
+_(Replace `YOUR_USERNAME` with your GitHub username)_
 
-   - Go to https://vercel.com/new
-   - Import your GitHub repository
-   - Vercel will auto-detect the configuration from `vercel.json`
-   - Click **Deploy**
+---
 
-3. **Set Environment Variables** (in Vercel Dashboard):
+### **Step 2: Create Render Account**
 
-   - Go to your project → Settings → Environment Variables
-   - Add these variables for the backend:
+1. Go to **https://render.com/**
+2. Click **"Get Started"**
+3. Click **"Sign Up with GitHub"**
+4. Authorize Render to access your repositories
+5. **No credit card required!** ✅
+
+---
+
+### **Step 3: Create PostgreSQL Database**
+
+1. Click **"New +"** → **"PostgreSQL"**
+2. Fill in:
+   - **Name**: `mywallet-db`
+   - **Database**: `mywallet`
+   - **User**: `mywallet`
+   - **Region**: Choose closest to you
+   - **Plan**: **Free** ✅
+3. Click **"Create Database"**
+4. Wait 2-3 minutes for database to provision
+5. **Important**: Copy the **Internal Database URL** from the database info page
+
+---
+
+### **Step 4: Create Web Service**
+
+1. Click **"New +"** → **"Web Service"**
+2. Click **"Build and deploy from a Git repository"**
+3. Click **"Connect"** next to your GitHub repository
+4. Configure:
+
+   **Basic Settings:**
+
+   - **Name**: `mywallet-app`
+   - **Region**: Same as database
+   - **Branch**: `main`
+   - **Root Directory**: Leave empty
+   - **Runtime**: **Java**
+
+   **Build Settings:**
+
+   - **Build Command**:
+
      ```
-     SPRING_DATASOURCE_URL=your_database_url
-     SPRING_DATASOURCE_USERNAME=your_db_username
-     SPRING_DATASOURCE_PASSWORD=your_db_password
-     JWT_SECRET=your_jwt_secret_key
+     cd frontend && npm install && npm run build && cd ../backend && mvn clean package -DskipTests
      ```
 
-4. **Get Your Live URL**:
-   - Vercel will provide a URL like: `https://your-app-name.vercel.app`
+   - **Start Command**:
+     ```
+     cd backend && java -jar target/expenseTracker-0.0.1-SNAPSHOT.jar
+     ```
+
+   **Plan:**
+
+   - Select **"Free"** ✅
 
 ---
 
-### Option 2: Deploy via Vercel CLI
+### **Step 5: Configure Environment Variables**
 
-```powershell
-# Install Vercel CLI globally
-npm install -g vercel
+Click **"Advanced"** and add these environment variables:
 
-# Navigate to project root
-cd D:\Extras\Fullstack-Expense-Tracker-main
+| Key                          | Value                                          |
+| ---------------------------- | ---------------------------------------------- |
+| `SPRING_DATASOURCE_URL`      | Your PostgreSQL Internal URL from Step 3       |
+| `SPRING_DATASOURCE_USERNAME` | `mywallet`                                     |
+| `SPRING_DATASOURCE_PASSWORD` | Copy from database credentials                 |
+| `DATABASE_PLATFORM`          | `org.hibernate.dialect.PostgreSQLDialect`      |
+| `JWT_SECRET`                 | `MyWalletSecretKey2024ExpenseTrackerJWT123456` |
+| `MAIL_USERNAME`              | `your_email@gmail.com`                         |
+| `MAIL_PASSWORD`              | Your Gmail app password (see below)            |
+| `PORT`                       | `8080`                                         |
+| `UPLOAD_DIR`                 | `/tmp/uploads/user/profile`                    |
 
-# Login to Vercel (opens browser)
-vercel login
+**To get Database URL:**
 
-# Deploy to production
-vercel --prod
-```
-
----
-
-## Backend Configuration Notes
-
-### Database Setup
-
-For production, you'll need a hosted database:
-
-- **Free options**:
-  - Supabase (PostgreSQL)
-  - PlanetScale (MySQL)
-  - MongoDB Atlas
-  - Railway (PostgreSQL)
-
-### Update Backend Configuration
-
-1. Go to `backend/src/main/resources/application.properties`
-2. Use environment variables:
-
-```properties
-spring.datasource.url=${SPRING_DATASOURCE_URL}
-spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
-spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
-```
+- Go to your `mywallet-db` database
+- Scroll to **"Connections"** section
+- Copy **"Internal Database URL"**
+- Format: `postgresql://mywallet:password@host/mywallet`
 
 ---
 
-## Frontend Configuration
+### **Step 6: Deploy**
 
-Update API base URL in `frontend/src/services/auth.config.js`:
-
-```javascript
-const API_URL =
-  process.env.REACT_APP_API_URL || "https://your-app-name.vercel.app/api";
-```
-
-Add to `frontend/.env.production`:
-
-```
-REACT_APP_API_URL=https://your-app-name.vercel.app/api
-```
+1. Click **"Create Web Service"**
+2. Render starts building (takes 10-15 minutes first time)
+3. Watch progress in **"Logs"** tab
+4. Wait for **"Your service is live 🎉"**
 
 ---
 
-## Troubleshooting
+### **Step 7: Access Your App**
 
-**Issue**: Backend doesn't start
+Your live URL: `https://mywallet-app.onrender.com`
 
-- Check Vercel logs: Project → Deployments → View Function Logs
-- Verify Java version in `backend/pom.xml` matches Vercel's support
+Test it:
 
-**Issue**: CORS errors
-
-- Add CORS configuration in backend Spring Boot config
-- Ensure frontend origin is whitelisted
-
-**Issue**: Database connection failed
-
-- Verify environment variables are set correctly
-- Check database allows external connections
+- ✅ Register new user
+- ✅ Test password reset
+- ✅ Create transactions
+- ✅ Upload profile picture
 
 ---
 
-## Post-Deployment
+## 📧 Gmail App Password Setup
 
-Your app will be live at: `https://your-app-name.vercel.app`
+1. Go to **https://myaccount.google.com/**
+2. **Security** → Enable **"2-Step Verification"**
+3. Search **"App passwords"**
+4. Generate for **Mail** app
+5. Copy 16-character password
+6. Use as `MAIL_PASSWORD`
 
-- Frontend: `https://your-app-name.vercel.app`
-- Backend API: `https://your-app-name.vercel.app/api`
+---
 
-Every push to `main` branch will trigger automatic redeployment.
+## ⚡ Keep App Awake (Optional)
+
+Free tier apps sleep after 15 min. To keep awake:
+
+1. Go to **https://uptimerobot.com/** (free)
+2. Add monitor: `https://mywallet-app.onrender.com`
+3. Interval: 5 minutes
+4. App stays awake 24/7!
+
+---
+
+## 💰 100% FREE Features
+
+- ✅ 750 hours/month (24/7 for one app)
+- ✅ PostgreSQL database (1GB)
+- ✅ Free SSL/HTTPS
+- ✅ Auto-deploy from GitHub
+- ✅ Custom domain support
+- ✅ Never expires
+- ✅ No credit card needed
+
+---
+
+## 🛠️ Troubleshooting
+
+**Build fails?**
+
+- Check logs for errors
+- Verify build command is correct
+
+**Can't connect to database?**
+
+- Use Internal Database URL (not External)
+- Check database is running
+
+**Frontend not loading?**
+
+- Ensure `npm run build` succeeded
+- Check Spring Boot serves static files
+
+**Email not working?**
+
+- Verify 16-char Gmail app password
+- Enable 2-Step Verification
+
+---
+
+## 🔄 Auto-Deployment
+
+Every `git push` to main:
+
+- ✅ Auto-rebuild
+- ✅ Auto-deploy
+- ✅ Zero downtime
+
+---
+
+## 🎉 You're Live!
+
+Your app is now:
+
+- ✅ **FREE forever** on Render.com
+- ✅ Using PostgreSQL (free 1GB)
+- ✅ HTTPS secured
+- ✅ Auto-deploying
+- ✅ Accessible worldwide
+
+**URL**: `https://mywallet-app.onrender.com`
+
+Enjoy! 🚀💰

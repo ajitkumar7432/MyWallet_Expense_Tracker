@@ -1,105 +1,336 @@
-<h1 align="center">🌟 My Wallet - Expense tracking app 🌟</h1>
+# 💰 MyWallet - Expense Tracker
 
-<p align="center">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Spring%20Boot-darkgreen?style=for-the-badge">
-  <img alt="Static Badge" src="https://img.shields.io/badge/React.js-blue?style=for-the-badge">
-  <img alt="Static Badge" src="https://img.shields.io/badge/mysql-red?style=for-the-badge">
-  <img alt="Static Badge" src="https://img.shields.io/badge/css-purple?style=for-the-badge">
-  <img alt="Static Badge" src="https://img.shields.io/badge/jwt-orange?style=for-the-badge">
-</p>
+A full-stack expense tracking application built with **Spring Boot** and **React**, ready for **FREE deployment** on Render.com!
 
-## Table of contents
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Java](https://img.shields.io/badge/Java-17-orange.svg)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.1-brightgreen.svg)
+![React](https://img.shields.io/badge/React-18.2.0-blue.svg)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)
 
-1. [Descripiton](#description)
-2. [How to run?](#how-to-run)
-3. [Screenshots](#screenshots)
+---
 
-## Description
+## ✨ Features
 
-- Developed a full-stack expense tracking web application using Spring Boot, React.js, and MySQL, facilitating seamless management of day-to-day finances.
-- Implemented multi-role functionality with user authentication, enabling secure access for both users and administrators, with features such as sign-in, sign-up, password reset, and email verification.
-- Developed intuitive user dashboards, transaction management, upcoming/recurring transactions tracking, monthly summaries, and statistics, budget management.
-- Developed categories, users and transactions management for administrators.
-- Implemented management capabilities including search, filter and pagination.
+- 🔐 **User Authentication** - JWT-based secure login/registration
+- 💸 **Track Expenses & Income** - Categorize and monitor transactions
+- 📊 **Statistics & Charts** - Visual insights with Recharts
+- 💰 **Budget Management** - Set and track spending limits
+- 📝 **Saved Templates** - Quick transaction creation
+- 👤 **Profile Management** - Custom profile with image upload
+- 📧 **Password Recovery** - Email-based password reset
+- 🌙 **Dark Theme** - Modern fintech UI with yellow/orange accents
+- 📱 **Mobile Responsive** - Works on all devices
 
-## How to run?
+---
 
-### Step 1: Fork and Clone the Repository
+## 🛠️ Tech Stack
 
-1. Fork the repository to your GitHub account.
+### Backend
 
-2. Clone the forked repository to your local machine.
+- **Spring Boot 3.2.1** - Java web framework
+- **Spring Security** - Authentication & authorization
+- **JWT** - Token-based security
+- **JPA/Hibernate** - ORM for database
+- **PostgreSQL** - Production database
+- **MySQL** - Local development database
+- **Spring Mail** - Email notifications
 
-```sh
-git clone https://github.com/<your-username>/Fullstack-Expense-Tracker
+### Frontend
+
+- **React 18** - UI library
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
+- **Recharts** - Data visualization
+- **React Hook Form** - Form handling
+- **React Hot Toast** - Notifications
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Java 17+
+- Node.js 18+
+- Maven 3.8+
+- MySQL (for local dev)
+
+### Local Development
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/mywallet.git
+   cd mywallet
+   ```
+
+2. **Setup Backend**
+
+   ```bash
+   cd backend
+   # Update application.properties with your MySQL credentials
+   mvn spring-boot:run
+   ```
+
+   Backend runs on: `http://localhost:8080`
+
+3. **Setup Frontend**
+
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
+
+   Frontend runs on: `http://localhost:3000`
+
+4. **Create MySQL Database**
+   ```sql
+   CREATE DATABASE expensetracker;
+   ```
+
+---
+
+## 🌐 Deploy to Render.com - **FREE FOREVER**
+
+This app is configured for **100% free deployment** on Render.com!
+
+### Quick Deploy Steps:
+
+1. **Push to GitHub**
+2. **Create Render account** (no credit card)
+3. **Create PostgreSQL database** (free)
+4. **Create Web Service** from GitHub
+5. **Add environment variables**
+6. **Deploy!**
+
+**Detailed Guide**: See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for complete step-by-step instructions.
+
+**Time to deploy**: ~35 minutes  
+**Cost**: $0/month forever  
+**Live URL**: `https://mywallet-app.onrender.com`
+
+---
+
+## 🔧 Environment Variables
+
+### Required for Deployment:
+
+```env
+SPRING_DATASOURCE_URL=postgresql://user:pass@host/db
+SPRING_DATASOURCE_USERNAME=mywallet
+SPRING_DATASOURCE_PASSWORD=your_db_password
+DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+JWT_SECRET=your_jwt_secret_key
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=gmail_app_password
+PORT=8080
+UPLOAD_DIR=/tmp/uploads/user/profile
 ```
 
-### Step 2: Setting up e-mail and database configurations
+See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for detailed setup.
 
-- Configure the following credentials in the [`application.properties`](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/blob/main/backend/src/main/resources/application.properties) file.
+---
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DATABASE_NAME
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+## 📂 Project Structure
 
-spring.mail.username=YOUR_USERNAME
-spring.mail.password=YOUR_PASSWORD
+```
+mywallet/
+├── backend/                 # Spring Boot backend
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/fullStack/
+│   │   │   └── resources/
+│   │   └── test/
+│   └── pom.xml
+├── frontend/                # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── contexts/
+│   │   └── assets/
+│   └── package.json
+├── render.yaml              # Render deployment config
+├── build.sh                 # Build script
+├── start.sh                 # Start script
+└── DEPLOYMENT.md            # Deployment guide
 ```
 
-### Step 3: Run the backend.
+---
 
-- Run the backend application. It will automatically create the required tables. 
-- Add some custom data manually in the [categories](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/blob/7ecea71aaeca4e26a4aafd02fd602abe4d9da67d/backend/src/main/java/com/fullStack/expenseTracker/models/Category.java#L13) table for both [type](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/blob/7ecea71aaeca4e26a4aafd02fd602abe4d9da67d/backend/src/main/java/com/fullStack/expenseTracker/models/TransactionType.java#L13) `expense` and `income`.
-- To start as admin, Insert a new user manually with role admin in [`users`](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/blob/7ecea71aaeca4e26a4aafd02fd602abe4d9da67d/backend/src/main/java/com/fullStack/expenseTracker/models/User.java#L20) table.
+## 🎨 UI Features
 
-### Step 4: Run the frontend
+- **Modern Dark Theme** - Sleek black background
+- **Yellow/Orange Accents** - Fintech-inspired color scheme
+- **Responsive Design** - Mobile-first approach
+- **Smooth Animations** - Hover effects and transitions
+- **Chart Visualizations** - Income vs Expense graphs
+- **Category Management** - Custom expense categories
+- **Transaction History** - Searchable and filterable
+- **Budget Tracking** - Visual budget progress
 
-1. Navigate to [frontend direcory](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/tree/main/frontend).
+---
+
+## 🔐 Security Features
+
+- JWT token authentication
+- Password hashing with BCrypt
+- CORS protection
+- SQL injection prevention (JPA)
+- XSS protection
+- HTTPS encryption (on Render)
+- Secure file uploads
+
+---
+
+## 📧 Email Features
+
+- Password reset via email
+- Email verification codes
+- Gmail SMTP integration
+- Customizable email templates
+
+---
+
+## 🧪 API Endpoints
+
+### Authentication
+
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login
+- `POST /api/auth/forgot-password` - Request password reset
+- `POST /api/auth/verify-code` - Verify reset code
+- `POST /api/auth/reset-password` - Reset password
+
+### Transactions
+
+- `GET /api/transactions` - Get all transactions
+- `POST /api/transactions` - Create transaction
+- `PUT /api/transactions/{id}` - Update transaction
+- `DELETE /api/transactions/{id}` - Delete transaction
+
+### Categories
+
+- `GET /api/categories` - Get all categories
+- `POST /api/categories` - Create category (admin)
+
+### User
+
+- `GET /api/user/profile` - Get user profile
+- `PUT /api/user/profile` - Update profile
+- `POST /api/user/profile/image` - Upload profile picture
+
+---
+
+## 💰 Render.com Free Tier
+
+### What's Included:
+
+- ✅ **750 hours/month** - Enough for 24/7 operation
+- ✅ **PostgreSQL database** - 1GB storage
+- ✅ **100GB bandwidth/month**
+- ✅ **Free SSL/HTTPS**
+- ✅ **Auto-deploy from GitHub**
+- ✅ **Custom domain support**
+- ✅ **Never expires**
+
+### Limitations:
+
+- App sleeps after 15 minutes of inactivity
+- Wakes up in ~30 seconds when accessed
+- Use UptimeRobot (free) to keep app awake
+
+---
+
+## 🛠️ Development
+
+### Run Tests
+
+```bash
+cd backend
+mvn test
 ```
-cd ./frontend
+
+### Build Production
+
+```bash
+# Build frontend
+cd frontend
+npm run build
+
+# Build backend
+cd ../backend
+mvn clean package
 ```
 
-2. Install dependencies.
-```
-npm install
-```
+### Run Production Build
 
-3. Run the app.
-```
-npm start
+```bash
+cd backend
+java -jar target/expenseTracker-0.0.1-SNAPSHOT.jar
 ```
 
-Access the application at [`http://localhost:3000/`](http://localhost:3000/).
-To get started create a new account using your email.
+---
 
-## Screenshots
+## 🤝 Contributing
 
-![Screenshot 2024-04-18 091658](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/7637b70d-8b9f-485e-84f6-bce3c940f3f2)
-![Screenshot 2024-04-18 091720](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/f58e2e13-7db4-439a-b371-ce9b6e5838c7)
-![Screenshot 2024-04-18 091743](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/dbcfdbd2-d515-4197-b5ff-11ba0aed2dcf)
-![Screenshot 2024-04-18 091803](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/9d271a52-1444-4739-afe4-f51aa616d55e)
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Users's stuff
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-![Screenshot 2024-04-22 153501](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/a8e6d65b-626f-493e-922d-dd7c26d8294c)
-![Screenshot 2024-04-22 153536](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/ed01d05e-cead-43c5-8959-6b64615fee43)
-![Screenshot 2024-04-22 153556](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/40ab0b82-b38d-4a19-9044-d226e3f345ed)
-![Screenshot 2024-04-22 153622](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/8f8bef4e-6735-464f-a180-f2bc17633b1b)
-![Screenshot 2024-04-22 154204](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/994d23f0-e7c1-42a6-9571-44fd4353396e)
-![Screenshot 2024-04-22 154244](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/7e43cb13-6187-4af0-8900-66afef908f66)
-![Screenshot 2024-04-22 154301](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/1b308447-f5ef-4f26-826b-0e9f42e5914f)
+---
 
+## 📄 License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Admin's stuff
+---
 
-![Screenshot 2024-04-18 092245](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/06454812-f542-4404-b9bf-e7d9b96b043d)
-![Screenshot 2024-04-18 092306](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/a024fadc-5f6a-4e3f-96f6-f38dd1f6b477)
-![Screenshot 2024-04-18 092325](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/5e93095e-f4be-4245-b3a4-8653cd9fea27)
-![Screenshot 2024-04-18 092342](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/5d40498e-ec3b-4559-ba15-efdf9c248d22)
-![Screenshot 2024-04-18 092805](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/aa94d2da-0080-421b-a191-d2ff9fb4472f)
-![Screenshot 2024-04-18 092822](https://github.com/DharshiBalasubramaniyam/Fullstack-Expense-Tracker/assets/139672976/6cb49c2c-8317-4cec-ad16-b9496d97b16f)
+## 👤 Author
 
+**Your Name**
 
+- GitHub: [@ajitkumar7432](https://github.com/ajitkumar7432)
 
+---
+
+## 🙏 Acknowledgments
+
+- Spring Boot team for the amazing framework
+- React team for the powerful UI library
+- Render.com for free hosting
+- All open-source contributors
+
+---
+
+## 📞 Support
+
+For deployment help, see [`DEPLOYMENT.md`](./DEPLOYMENT.md)
+
+For quick reference, see [`DEPLOYMENT_CHECKLIST.md`](./DEPLOYMENT_CHECKLIST.md)
+
+---
+
+## 🎉 Ready to Deploy!
+
+Your app is **fully configured** for free deployment on Render.com.
+
+**Next Steps:**
+
+1. Read [`DEPLOYMENT.md`](./DEPLOYMENT.md)
+2. Push to GitHub
+3. Deploy to Render.com
+4. Share your live app!
+
+**Estimated deployment time**: 35 minutes  
+**Cost**: $0/month forever
+
+---
+
+Made with ❤️ and ☕

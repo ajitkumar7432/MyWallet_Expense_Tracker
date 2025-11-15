@@ -1,7 +1,18 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
 function CategoryExpenseChart({ categorySummary }) {
-    const COLORS = ["#ff6e6e", "#ffb26e", "#e6cd10", "#00a33c", "#6ea1ff", "#a36eff", "#ff6eff", "#6ee0ff", "#676d6e"];
+    // Fintech Theme Colors - Yellow, Orange, Green, Red (no grey)
+    const COLORS = [
+        "#FFC72C", // Primary Yellow
+        "#FF8A00", // Orange Accent
+        "#E63946", // Red Error
+        "#2ECC71", // Green Success
+        "#FFC72C", // Yellow repeat for more categories
+        "#FF8A00", // Orange repeat
+        "#E63946", // Red repeat
+        "#2ECC71", // Green repeat
+        "#000000"  // Black for final category if needed
+    ];
 
     return (
         <div className='chart'>
@@ -18,14 +29,38 @@ function CategoryExpenseChart({ categorySummary }) {
                         outerRadius="75%"
                         fill="#8884d8"
                         dataKey="amount"
-                        label
+                        label={{
+                            fill: 'var(--text-primary)',
+                            fontWeight: 'bold',
+                            fontSize: 14
+                        }}
                     >
                         {categorySummary.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            <Cell 
+                                key={`cell-${index}`} 
+                                fill={COLORS[index % COLORS.length]}
+                                stroke="#FFFFFF"
+                                strokeWidth={2}
+                            />
                         ))}
                     </Pie>
-                    <Legend />
-                    <Tooltip />
+                    <Legend 
+                        wrapperStyle={{
+                            fontWeight: '700',
+                            fontSize: '14px',
+                            color: 'var(--text-primary)'
+                        }}
+                        formatter={(value) => <span style={{ color: 'var(--text-primary)' }}>{value}</span>}
+                    />
+                    <Tooltip 
+                        contentStyle={{
+                            backgroundColor: '#000000',
+                            border: '2px solid #FFC72C',
+                            borderRadius: '8px',
+                            color: '#FFFFFF',
+                            fontWeight: '600'
+                        }}
+                    />
                 </PieChart>
             </ResponsiveContainer>
         </div>
@@ -33,3 +68,4 @@ function CategoryExpenseChart({ categorySummary }) {
 }
 
 export default CategoryExpenseChart;
+

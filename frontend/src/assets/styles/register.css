@@ -1,18 +1,17 @@
-/* ---------------------------------- */
-/* ✨ AUTH FORM - CLEAN & FOCUSED WHITE THEME */
-/* ---------------------------------- */
+/* ========================================
+   AUTH FORM - FINTECH THEME
+   Clean & Bold Design - No Grey
+   ======================================== */
 
 :root {
-  --color-primary: #ffffff;          /* Form background */
-  --color-secondary: #f7f7f7;        /* Slightly soft white for contrast */
-  --color-text-primary: #1a1a1a;     /* Dark readable text */
-  --color-text-secondary: #555555;   /* Muted text */
-  --color-accent: #f6b100;           /* Warm golden accent */
+  --auth-bg-light: #FFFFFF;
+  --auth-bg-dark: #000000;
 }
 
-/* ----------------------------- */
-/* BACKGROUND CONTAINER           */
-/* ----------------------------- */
+/* ========================================
+   BACKGROUND CONTAINER
+   ======================================== */
+
 .container {
   display: flex;
   align-items: center;
@@ -26,138 +25,193 @@
   z-index: 0;
 }
 
-/* Darker overlay for less distraction */
+/* Dark overlay for contrast */
 .container::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* dim background image */
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
-/* ----------------------------- */
-/* AUTH FORM BOX (FOCUSED CARD)   */
-/* ----------------------------- */
+/* ========================================
+   AUTH FORM BOX
+   ======================================== */
+
 .auth-form {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 350px;
-  padding: 18px 16px; /* compact layout */
-  background: var(--color-primary);
-  border: 1px solid #e5e5e5;
+  max-width: 380px;
+  padding: 24px 20px;
+  background: var(--white);
+  border: 3px solid var(--primary-yellow);
   border-radius: 12px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 4px var(--orange-accent);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   animation: fadeInUp 0.7s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Spinnaker', sans-serif;
 }
 
-/* ----------------------------- */
-/* FORM TITLE                     */
-/* ----------------------------- */
+/* Dark Mode Auth Form */
+.dark .auth-form {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ========================================
+   FORM TITLE
+   ======================================== */
+
 .auth-form h2 {
   text-align: center;
-  color: var(--color-accent);
-  font-size: 18px;
+  color: var(--primary-yellow);
+  font-size: 22px;
   letter-spacing: 0.5px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(246, 177, 0, 0.4);
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-yellow);
+  text-transform: uppercase;
 }
 
-/* ----------------------------- */
-/* INPUT FIELDS                   */
-/* ----------------------------- */
+/* ========================================
+   INPUT FIELDS
+   ======================================== */
+
 .auth-form .input-box {
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 6px;
 }
 
 .auth-form label {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  font-weight: 500;
+  font-size: 13px;
+  color: var(--black);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.dark .auth-form label {
+  color: var(--white);
 }
 
 .auth-form input:not([type="submit"]) {
   width: 100%;
-  background: var(--color-secondary);
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 13px;
-  color: var(--color-text-primary);
+  background: var(--white);
+  border: 2px solid var(--primary-yellow);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--black);
+  font-weight: 600;
   transition: all 0.25s ease;
+}
+
+.dark .auth-form input:not([type="submit"]) {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--primary-yellow);
 }
 
 .auth-form input:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 4px rgba(246, 177, 0, 0.4);
-  background: #fff;
+  border-color: var(--orange-accent);
+  box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
   outline: none;
+  transform: translateY(-1px);
 }
 
-/* ----------------------------- */
-/* ERROR MESSAGE                  */
-/* ----------------------------- */
+.auth-form input::placeholder {
+  color: var(--black);
+  opacity: 0.5;
+}
+
+.dark .auth-form input::placeholder {
+  color: var(--white);
+  opacity: 0.5;
+}
+
+/* ========================================
+   ERROR MESSAGE
+   ======================================== */
+
 .auth-form small {
-  color: #e53935;
-  font-size: 11px;
-  margin-top: 2px;
+  color: var(--red-error);
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 700;
 }
 
-/* ----------------------------- */
-/* SUBMIT BUTTON                  */
-/* ----------------------------- */
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
 .auth-form .button-fill {
   width: 100%;
-  padding: 8px;
-  font-size: 13px;
-  border-radius: 6px;
-  font-weight: 600;
-  background-color: var(--color-accent);
-  color: #111;
-  border: none;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 700;
+  background: var(--primary-yellow);
+  color: var(--black);
+  border: 2px solid var(--orange-accent);
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 3px 8px rgba(246, 177, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 199, 44, 0.4);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .auth-form .button-fill:hover {
-  background-color: #ffcc00;
-  transform: translateY(-1px);
-  box-shadow: 0 3px 12px rgba(246, 177, 0, 0.6);
+  background: var(--orange-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 138, 0, 0.5);
 }
 
-/* ----------------------------- */
-/* LINKS & MESSAGE                */
-/* ----------------------------- */
+.auth-form .button-fill:active {
+  transform: translateY(0);
+}
+
+.auth-form .button-fill:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   LINKS & MESSAGE
+   ======================================== */
+
 .auth-form .msg {
   text-align: center;
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  margin-top: 4px;
+  font-size: 13px;
+  color: var(--black);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.dark .auth-form .msg {
+  color: var(--white);
 }
 
 .auth-form .inline-link {
-  color: var(--color-accent);
-  font-weight: 600;
+  color: var(--primary-yellow);
+  font-weight: 700;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .auth-form .inline-link:hover {
-  color: var(--color-text-primary);
+  color: var(--orange-accent);
   text-decoration: underline;
 }
 
-/* ----------------------------- */
-/* RESPONSIVE DESIGN              */
-/* ----------------------------- */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 900px) {
   .container {
     justify-content: center;
@@ -166,21 +220,49 @@
   }
 
   .auth-form {
-    max-width: 280px;
-    padding: 16px 14px;
+    max-width: 320px;
+    padding: 20px 16px;
+  }
+  
+  .auth-form h2 {
+    font-size: 20px;
   }
 }
 
-/* ----------------------------- */
-/* ANIMATION                     */
-/* ----------------------------- */
+@media (max-width: 480px) {
+  .auth-form {
+    max-width: 300px;
+    padding: 18px 14px;
+    gap: 12px;
+  }
+  
+  .auth-form h2 {
+    font-size: 18px;
+  }
+  
+  .auth-form input:not([type="submit"]) {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .auth-form .button-fill {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
