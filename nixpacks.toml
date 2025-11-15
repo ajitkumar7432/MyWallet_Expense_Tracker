@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ['maven', 'nodejs']
+nixPkgs = ['maven', 'nodejs', 'jdk17']
 
 [phases.build]
 cmds = [
@@ -8,4 +8,4 @@ cmds = [
 ]
 
 [start]
-cmd = 'cd backend && java -jar target/*.jar'
+cmd = 'cd backend && java -Dserver.port=$PORT -jar target/*.jar'
