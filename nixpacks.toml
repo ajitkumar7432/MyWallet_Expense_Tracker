@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ['maven', 'nodejs']
+
+[phases.build]
+cmds = [
+  'cd frontend && npm install && npm run build',
+  'cd backend && mvn clean package -DskipTests'
+]
+
+[start]
+cmd = 'cd backend && java -jar target/*.jar'

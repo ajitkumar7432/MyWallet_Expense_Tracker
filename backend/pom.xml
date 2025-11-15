@@ -14,7 +14,7 @@
 	<name>expenseTracker</name>
 	<description>expenseTracker project for CV</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
