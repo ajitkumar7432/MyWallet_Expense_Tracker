@@ -58,21 +58,12 @@ public class AuthServiceImpl implements AuthService {
 
         try {
             User user = createUser(signUpRequestDto);
-            // Auto-enable for Railway (SMTP port 587 blocked on free tier)
-            user.setEnabled(true);
             
             userRepository.save(user);
-            
-            // Try sending email but don't fail registration if SMTP is blocked
-            try {
-                notificationService.sendUserRegistrationVerificationEmail(user);
-                return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponseDto<>(
-                        ApiResponseStatus.SUCCESS, HttpStatus.CREATED, "Registration successful! Check your email for verification code."));
-            } catch (Exception emailEx) {
-                log.warn("Email sending failed (SMTP blocked): {}", emailEx.getMessage());
-                return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponseDto<>(
-                        ApiResponseStatus.SUCCESS, HttpStatus.CREATED, "Registration successful! You can now login."));
-            }
+            notificationService.sendUserRegistrationVerificationEmail(user);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponseDto<>(
+                    ApiResponseStatus.SUCCESS, HttpStatus.CREATED, "Verification email has been successfully sent!"));
 
         } catch (Exception e) {
             log.error("Registration failed: {}", e.getMessage());
