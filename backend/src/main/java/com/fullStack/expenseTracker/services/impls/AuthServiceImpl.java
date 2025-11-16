@@ -58,12 +58,22 @@ public class AuthServiceImpl implements AuthService {
 
         try {
             User user = createUser(signUpRequestDto);
+            // Auto-enable user for Railway deployment (SMTP blocked on free tier)
+            user.setEnabled(true);
+            user.setVerificationCode(null);
+            user.setVerificationCodeExpiryTime(null);
 
             userRepository.save(user);
-            notificationService.sendUserRegistrationVerificationEmail(user);
+            
+            // Try to send email but don't fail if it doesn't work
+            try {
+                notificationService.sendUserRegistrationVerificationEmail(user);
+            } catch (Exception emailEx) {
+                log.warn("Could not send verification email: {}", emailEx.getMessage());
+            }
 
             return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponseDto<>(
-                    ApiResponseStatus.SUCCESS, HttpStatus.CREATED, "Verification email has been successfully sent!"));
+                    ApiResponseStatus.SUCCESS, HttpStatus.CREATED, "Registration successful! You can now login."));
 
         } catch (Exception e) {
             log.error("Registration failed: {}", e.getMessage());
