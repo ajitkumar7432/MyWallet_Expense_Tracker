@@ -1,0 +1,39 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: expense-tracker-db
+    env: docker
+    plan: free
+    region: oregon
+    
+  # Spring Boot Application
+  - type: web
+    name: expense-tracker-app
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: expense-tracker-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: expense-tracker-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: expense-tracker-db
+          property: password
+      - key: PORT
+        value: 8080
+      - key: DATABASE_PLATFORM
+        value: org.hibernate.dialect.PostgreSQLDialect
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MAIL_USERNAME
+        value: demo@example.com
+      - key: MAIL_PASSWORD
+        value: demo_password
+    healthCheckPath: /actuator/health
