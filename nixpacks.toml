@@ -4,8 +4,8 @@ nixPkgs = ['maven', 'nodejs', 'jdk17']
 [phases.build]
 cmds = [
   'cd frontend && npm install && npm run build',
-  'cd backend && mvn clean package -DskipTests'
+  'cd ../backend && mvn clean package -DskipTests'
 ]
 
 [start]
-cmd = 'cd backend && java -Dserver.port=$PORT -jar target/*.jar'
+cmd = 'java -Dserver.port=$PORT -jar backend/target/*.jar'
