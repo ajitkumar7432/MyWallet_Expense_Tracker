@@ -1,336 +1,192 @@
-# 💰 MyWallet - Expense Tracker
+# 💰 MyWallet — Expense Tracker (Spring Boot + React)
 
-A full-stack expense tracking application built with **Spring Boot** and **React**, ready for **FREE deployment** on Render.com!
+Full‑stack personal finance tracker built with **Spring Boot 3** and **React 18**. Production flow packages the React build into Spring Boot so the app can be served from a single executable JAR.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Java](https://img.shields.io/badge/Java-17-orange.svg)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.1-brightgreen.svg)
 ![React](https://img.shields.io/badge/React-18.2.0-blue.svg)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-blue.svg)
 
 ---
 
-## ✨ Features
+## ✨ Highlights
 
-- 🔐 **User Authentication** - JWT-based secure login/registration
-- 💸 **Track Expenses & Income** - Categorize and monitor transactions
-- 📊 **Statistics & Charts** - Visual insights with Recharts
-- 💰 **Budget Management** - Set and track spending limits
-- 📝 **Saved Templates** - Quick transaction creation
-- 👤 **Profile Management** - Custom profile with image upload
-- 📧 **Password Recovery** - Email-based password reset
-- 🌙 **Dark Theme** - Modern fintech UI with yellow/orange accents
-- 📱 **Mobile Responsive** - Works on all devices
+- 🔐 JWT auth, password reset via email
+- 💸 Track income/expenses with categories and budgets
+- 📊 Dashboard with charts and summaries
+- 👤 Profile + image upload
+- 🌙 Light/Dark themes; responsive UI
 
 ---
 
-## 🛠️ Tech Stack
+## 🖼️ Screenshots
 
-### Backend
+> Images are stored in `frontend/src/assets/images`.
 
-- **Spring Boot 3.2.1** - Java web framework
-- **Spring Security** - Authentication & authorization
-- **JWT** - Token-based security
-- **JPA/Hibernate** - ORM for database
-- **PostgreSQL** - Production database
-- **MySQL** - Local development database
-- **Spring Mail** - Email notifications
+| | |
+|---|---|
+| ![Logo](frontend/src/assets/images/logo.png) | ![Dashboard](frontend/src/assets/images/transaction.png) |
+| ![Income](frontend/src/assets/images/income.png) | ![Expense](frontend/src/assets/images/expense.png) |
+| ![User](frontend/src/assets/images/user.png) | ![Cash](frontend/src/assets/images/cashInHand.png) |
+| ![Dark Mode](frontend/src/assets/images/dark%20mode.png) | ![Light Mode](frontend/src/assets/images/light%20mode.png) |
+| ![Success](frontend/src/assets/images/success.gif) |  |
 
-### Frontend
+### More Screenshots
 
-- **React 18** - UI library
-- **React Router** - Client-side routing
-- **Axios** - HTTP client
-- **Recharts** - Data visualization
-- **React Hook Form** - Form handling
-- **React Hot Toast** - Notifications
+| | |
+|---|---|
+| ![Landing](Pages/website/landpage.png) | ![Login](Pages/website/login.png) |
+| ![Admin 1](Pages/admin_pages/Screenshot%202025-12-18%20122024.png) | ![Admin 2](Pages/admin_pages/Screenshot%202025-12-18%20122048.png) |
+| ![User A](Pages/user_pages/Screenshot%202025-12-18%20121755.png) | ![User B](Pages/user_pages/Screenshot%202025-12-18%20121814.png) |
+| ![User C](Pages/user_pages/Screenshot%202025-12-18%20121828.png) | ![User D](Pages/user_pages/Screenshot%202025-12-18%20121849.png) |
+| ![User E](Pages/user_pages/Screenshot%202025-12-18%20121908.png) | ![User F](Pages/user_pages/Screenshot%202025-12-18%20121929.png) |
 
 ---
 
-## 🚀 Quick Start
+## 📦 Tech Stack
 
-### Prerequisites
+- **Backend:** Spring Boot, Spring Security, JWT, JPA/Hibernate, JavaMail
+- **DB:** MySQL (local) • PostgreSQL/MySQL (production)
+- **Frontend:** React, React Router, Axios, Recharts, React Hook Form
+- **Build:** Maven, npm
+
+---
+
+## ⚙️ Prerequisites
 
 - Java 17+
 - Node.js 18+
-- Maven 3.8+
-- MySQL (for local dev)
+- Maven (or use `mvnw` wrapper)
+- MySQL running locally (for dev)
 
-### Local Development
+Create the dev database:
 
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/mywallet.git
-   cd mywallet
-   ```
-
-2. **Setup Backend**
-
-   ```bash
-   cd backend
-   # Update application.properties with your MySQL credentials
-   mvn spring-boot:run
-   ```
-
-   Backend runs on: `http://localhost:8080`
-
-3. **Setup Frontend**
-
-   ```bash
-   cd frontend
-   npm install
-   npm start
-   ```
-
-   Frontend runs on: `http://localhost:3000`
-
-4. **Create MySQL Database**
-   ```sql
-   CREATE DATABASE expensetracker;
-   ```
-
----
-
-## 🌐 Deploy to Render.com - **FREE FOREVER**
-
-This app is configured for **100% free deployment** on Render.com!
-
-### Quick Deploy Steps:
-
-1. **Push to GitHub**
-2. **Create Render account** (no credit card)
-3. **Create PostgreSQL database** (free)
-4. **Create Web Service** from GitHub
-5. **Add environment variables**
-6. **Deploy!**
-
-**Detailed Guide**: See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for complete step-by-step instructions.
-
-**Time to deploy**: ~35 minutes  
-**Cost**: $0/month forever  
-**Live URL**: `https://mywallet-app.onrender.com`
-
----
-
-## 🔧 Environment Variables
-
-### Required for Deployment:
-
-```env
-SPRING_DATASOURCE_URL=postgresql://user:pass@host/db
-SPRING_DATASOURCE_USERNAME=mywallet
-SPRING_DATASOURCE_PASSWORD=your_db_password
-DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
-JWT_SECRET=your_jwt_secret_key
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=gmail_app_password
-PORT=8080
-UPLOAD_DIR=/tmp/uploads/user/profile
-```
-
-See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for detailed setup.
-
----
-
-## 📂 Project Structure
-
-```
-mywallet/
-├── backend/                 # Spring Boot backend
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/fullStack/
-│   │   │   └── resources/
-│   │   └── test/
-│   └── pom.xml
-├── frontend/                # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── contexts/
-│   │   └── assets/
-│   └── package.json
-├── render.yaml              # Render deployment config
-├── build.sh                 # Build script
-├── start.sh                 # Start script
-└── DEPLOYMENT.md            # Deployment guide
+```sql
+CREATE DATABASE expensetracker;
 ```
 
 ---
 
-## 🎨 UI Features
+## 🚀 Production Build & Run
 
-- **Modern Dark Theme** - Sleek black background
-- **Yellow/Orange Accents** - Fintech-inspired color scheme
-- **Responsive Design** - Mobile-first approach
-- **Smooth Animations** - Hover effects and transitions
-- **Chart Visualizations** - Income vs Expense graphs
-- **Category Management** - Custom expense categories
-- **Transaction History** - Searchable and filterable
-- **Budget Tracking** - Visual budget progress
+The backend is configured to copy the React build into `static/` during Maven build. Use this flow for a single JAR deployment.
 
----
+### 1) Build frontend
 
-## 🔐 Security Features
-
-- JWT token authentication
-- Password hashing with BCrypt
-- CORS protection
-- SQL injection prevention (JPA)
-- XSS protection
-- HTTPS encryption (on Render)
-- Secure file uploads
-
----
-
-## 📧 Email Features
-
-- Password reset via email
-- Email verification codes
-- Gmail SMTP integration
-- Customizable email templates
-
----
-
-## 🧪 API Endpoints
-
-### Authentication
-
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login
-- `POST /api/auth/forgot-password` - Request password reset
-- `POST /api/auth/verify-code` - Verify reset code
-- `POST /api/auth/reset-password` - Reset password
-
-### Transactions
-
-- `GET /api/transactions` - Get all transactions
-- `POST /api/transactions` - Create transaction
-- `PUT /api/transactions/{id}` - Update transaction
-- `DELETE /api/transactions/{id}` - Delete transaction
-
-### Categories
-
-- `GET /api/categories` - Get all categories
-- `POST /api/categories` - Create category (admin)
-
-### User
-
-- `GET /api/user/profile` - Get user profile
-- `PUT /api/user/profile` - Update profile
-- `POST /api/user/profile/image` - Upload profile picture
-
----
-
-## 💰 Render.com Free Tier
-
-### What's Included:
-
-- ✅ **750 hours/month** - Enough for 24/7 operation
-- ✅ **PostgreSQL database** - 1GB storage
-- ✅ **100GB bandwidth/month**
-- ✅ **Free SSL/HTTPS**
-- ✅ **Auto-deploy from GitHub**
-- ✅ **Custom domain support**
-- ✅ **Never expires**
-
-### Limitations:
-
-- App sleeps after 15 minutes of inactivity
-- Wakes up in ~30 seconds when accessed
-- Use UptimeRobot (free) to keep app awake
-
----
-
-## 🛠️ Development
-
-### Run Tests
-
-```bash
-cd backend
-mvn test
-```
-
-### Build Production
-
-```bash
-# Build frontend
+```powershell
 cd frontend
+npm ci
 npm run build
-
-# Build backend
-cd ../backend
-mvn clean package
 ```
 
-### Run Production Build
+### 2) Build backend (packages UI inside the JAR)
 
-```bash
+```powershell
+cd ..\backend
+.\mvnw.cmd clean package -DskipTests
+```
+
+### 3) Run the JAR
+
+```powershell
+java -jar target\expenseTracker-0.0.1-SNAPSHOT.jar
+```
+
+App serves on `http://localhost:8080`.
+
+---
+
+## 🔧 Configuration (env vars)
+
+Prefer environment variables instead of editing `application.properties`:
+
+```powershell
+$env:SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/expensetracker"
+$env:SPRING_DATASOURCE_USERNAME="root"
+$env:SPRING_DATASOURCE_PASSWORD="yourpassword"
+$env:SPRING_MAIL_USERNAME="your_email@gmail.com"
+$env:SPRING_MAIL_PASSWORD="your_gmail_app_password"
+$env:APP_VERIFICATIONCODEEXPIRATIONMS="60000"
+```
+
+For PostgreSQL in production, set:
+
+```powershell
+$env:SPRING_DATASOURCE_URL="jdbc:postgresql://HOST:5432/DBNAME"
+$env:SPRING_DATASOURCE_USERNAME="USER"
+$env:SPRING_DATASOURCE_PASSWORD="PASSWORD"
+```
+
+Optional:
+
+```powershell
+$env:SERVER_PORT="8080"
+$env:APP_USER_PROFILE_UPLOAD_DIR="./uploads/user/profile"
+```
+
+---
+
+## 🧪 Useful Commands
+
+```powershell
+# Backend (dev)
 cd backend
-java -jar target/expenseTracker-0.0.1-SNAPSHOT.jar
+.\mvnw.cmd spring-boot:run
+
+# Backend tests
+.\mvnw.cmd test
+
+# Frontend install
+cd ..\frontend
+npm ci
+
+# Frontend dev
+npm start
+```
+
+---
+
+## 📁 Project Structure
+
+```
+MyWallet_Expense_Tracker/
+├─ backend/
+│  ├─ src/main/java/com/...
+│  ├─ src/main/resources/
+│  └─ pom.xml
+├─ frontend/
+│  ├─ src/assets/images/
+│  ├─ src/components/
+│  ├─ src/pages/
+│  └─ package.json
+├─ railway.json
+├─ nixpacks.toml
+└─ README.md
 ```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a branch: `git checkout -b feat/your-change`
+3. Commit: `git commit -m "feat: your change"`
+4. Push: `git push origin feat/your-change`
+5. Open a PR
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE).
 
 ---
 
 ## 👤 Author
 
-**Your Name**
-
 - GitHub: [@ajitkumar7432](https://github.com/ajitkumar7432)
 
 ---
 
-## 🙏 Acknowledgments
-
-- Spring Boot team for the amazing framework
-- React team for the powerful UI library
-- Render.com for free hosting
-- All open-source contributors
-
----
-
-## 📞 Support
-
-For deployment help, see [`DEPLOYMENT.md`](./DEPLOYMENT.md)
-
-For quick reference, see [`DEPLOYMENT_CHECKLIST.md`](./DEPLOYMENT_CHECKLIST.md)
-
----
-
-## 🎉 Ready to Deploy!
-
-Your app is **fully configured** for free deployment on Render.com.
-
-**Next Steps:**
-
-1. Read [`DEPLOYMENT.md`](./DEPLOYMENT.md)
-2. Push to GitHub
-3. Deploy to Render.com
-4. Share your live app!
-
-**Estimated deployment time**: 35 minutes  
-**Cost**: $0/month forever
-
----
-
-Made with ❤️ and ☕
+Made with ❤️
