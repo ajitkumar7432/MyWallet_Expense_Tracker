@@ -22,25 +22,30 @@ Full‑stack personal finance tracker built with **Spring Boot 3** and **React 1
 
 ## 🖼️ Screenshots
 
-> Images are stored in `frontend/src/assets/images`.
+- Landing — first impression and CTA  
+	![Landing](Pages/website/landpage.png)
 
-| | |
-|---|---|
-| ![Logo](frontend/src/assets/images/logo.png) | ![Dashboard](frontend/src/assets/images/transaction.png) |
-| ![Income](frontend/src/assets/images/income.png) | ![Expense](frontend/src/assets/images/expense.png) |
-| ![User](frontend/src/assets/images/user.png) | ![Cash](frontend/src/assets/images/cashInHand.png) |
-| ![Dark Mode](frontend/src/assets/images/dark%20mode.png) | ![Light Mode](frontend/src/assets/images/light%20mode.png) |
-| ![Success](frontend/src/assets/images/success.gif) |  |
+- Login — secure email/password with validation  
+	![Login](Pages/website/login.png)
 
-### More Screenshots
+- Dashboard — quick income/expense summary  
+	![Dashboard](Pages/user_pages/Screenshot%202025-12-18%20121755.png)
 
-| | |
-|---|---|
-| ![Landing](Pages/website/landpage.png) | ![Login](Pages/website/login.png) |
-| ![Admin 1](Pages/admin_pages/Screenshot%202025-12-18%20122024.png) | ![Admin 2](Pages/admin_pages/Screenshot%202025-12-18%20122048.png) |
-| ![User A](Pages/user_pages/Screenshot%202025-12-18%20121755.png) | ![User B](Pages/user_pages/Screenshot%202025-12-18%20121814.png) |
-| ![User C](Pages/user_pages/Screenshot%202025-12-18%20121828.png) | ![User D](Pages/user_pages/Screenshot%202025-12-18%20121849.png) |
-| ![User E](Pages/user_pages/Screenshot%202025-12-18%20121908.png) | ![User F](Pages/user_pages/Screenshot%202025-12-18%20121929.png) |
+- Transactions — searchable list with filters  
+	![Transactions](Pages/user_pages/Screenshot%202025-12-18%20121814.png)
+
+- Add/Edit — category, type, amount, note  
+	![Add/Edit](Pages/user_pages/Screenshot%202025-12-18%20121828.png)
+
+- Analytics — charts for spending insights  
+	![Analytics](Pages/user_pages/Screenshot%202025-12-18%20121849.png)
+
+- Profile — user details and avatar upload  
+	![Profile](Pages/user_pages/Screenshot%202025-12-18%20121908.png)
+
+- Admin — users and categories management  
+	![Admin Users](Pages/admin_pages/Screenshot%202025-12-18%20122024.png)
+	![Admin Categories](Pages/admin_pages/Screenshot%202025-12-18%20122048.png)
 
 ---
 
@@ -68,32 +73,40 @@ CREATE DATABASE expensetracker;
 
 ---
 
-## 🚀 Production Build & Run
+## 🚀 Quick Commands
 
-The backend is configured to copy the React build into `static/` during Maven build. Use this flow for a single JAR deployment.
+Short and simple commands you’ll actually use.
 
-### 1) Build frontend
+### Local dev
 
 ```powershell
+# Backend API
+cd backend
+.\mvnw.cmd spring-boot:run
+
+# Frontend UI (new terminal)
+cd ..\frontend
+npm install
+npm start
+```
+
+### Production (single JAR)
+
+```powershell
+# Build React
 cd frontend
 npm ci
 npm run build
-```
 
-### 2) Build backend (packages UI inside the JAR)
-
-```powershell
+# Package Spring Boot (bundles React into static/)
 cd ..\backend
 .\mvnw.cmd clean package -DskipTests
-```
 
-### 3) Run the JAR
-
-```powershell
+# Run
 java -jar target\expenseTracker-0.0.1-SNAPSHOT.jar
 ```
 
-App serves on `http://localhost:8080`.
+App runs at `http://localhost:8080`.
 
 ---
 
