@@ -30,32 +30,32 @@ Smart, simple personal finance — built with **Spring Boot 3** and **React 18**
 
 ## 🖼️ Screenshots
 
-- Landing — instant overview with a clear CTA
-	<img src="Pages/website/landpage.png" alt="Landing" width="100%">
+- **Landing — instant overview with a clear CTA**<br/>
+	<img src="Pages/website/landpage.png" alt="Landing" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Login — secure email/password with validation
-	<img src="Pages/website/login.png" alt="Login" width="100%">
+- **Login — secure email/password with validation**<br/>
+	<img src="Pages/website/login.png" alt="Login" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Dashboard — quick read of income, expenses, and balance
-	<img src="Pages/user_pages/Screenshot%202025-12-18%20121755.png" alt="Dashboard" width="100%">
+- **Dashboard — quick read of income, expenses, and balance**<br/>
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121755.png" alt="Dashboard" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Transactions — searchable list with filters and quick actions
-	<img src="Pages/user_pages/Screenshot%202025-12-18%20121814.png" alt="Transactions" width="100%">
+- **Transactions — searchable list with filters and quick actions**<br/>
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121814.png" alt="Transactions" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Add/Edit — choose category/type, set amount and notes
-	<img src="Pages/user_pages/Screenshot%202025-12-18%20121828.png" alt="Add/Edit" width="100%">
+- **Add/Edit — choose category/type, set amount and notes**<br/>
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121828.png" alt="Add/Edit" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Analytics — clear charts for spending insights
-	<img src="Pages/user_pages/Screenshot%202025-12-18%20121849.png" alt="Analytics" width="100%">
+- **Analytics — clear charts for spending insights**<br/>
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121849.png" alt="Analytics" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Profile — manage details and upload an avatar
-	<img src="Pages/user_pages/Screenshot%202025-12-18%20121908.png" alt="Profile" width="100%">
+- **Profile — manage details and upload an avatar**<br/>
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121908.png" alt="Profile" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Admin (Users) — manage accounts and roles
-	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122024.png" alt="Admin Users" width="100%">
+- **Admin (Users) — manage accounts and roles**<br/>
+	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122024.png" alt="Admin Users" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
-- Admin (Categories) — organize and maintain categories
-	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122048.png" alt="Admin Categories" width="100%">
+- **Admin (Categories) — organize and maintain categories**<br/>
+	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122048.png" alt="Admin Categories" width="100%" style="display:block;border:1px solid #e5e7eb;border-radius:10px;margin:10px 0 28px;">
 
 ---
 
