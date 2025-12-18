@@ -30,17 +30,32 @@ Smart, simple personal finance — built with **Spring Boot 3** and **React 18**
 
 ## 🖼️ Screenshots
 
-| Screenshot | What it shows |
-|---|---|
-| <img src="Pages/website/landpage.png" alt="Landing" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Landing** — instant overview with a bold headline and clear CTAs (Create Account / Log In). Sets the tone with a warm, fintech‑style hero and concise value proposition. |
-| <img src="Pages/website/login.png" alt="Login" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Login** — email/password with validation and clear error states. Fast entry back to your data. |
-| <img src="Pages/user_pages/Screenshot%202025-12-18%20121755.png" alt="Dashboard" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Dashboard** — quick read of income, expenses, and balance. Highlights trends at a glance. |
-| <img src="Pages/user_pages/Screenshot%202025-12-18%20121814.png" alt="Transactions" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Transactions** — searchable, filterable list with clean actions to edit or delete. |
-| <img src="Pages/user_pages/Screenshot%202025-12-18%20121828.png" alt="Add/Edit" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Add/Edit** — choose category and type (income/expense), set amount and notes; optimized for quick entry. |
-| <img src="Pages/user_pages/Screenshot%202025-12-18%20121849.png" alt="Analytics" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Analytics** — clear charts for spending insights and monthly comparisons to guide decisions. |
-| <img src="Pages/user_pages/Screenshot%202025-12-18%20121908.png" alt="Profile" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Profile** — manage details and upload an avatar; keeps your account personalized and secure. |
-| <img src="Pages/admin_pages/Screenshot%202025-12-18%20122024.png" alt="Admin Users" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Admin (Users)** — overview and management tools for user accounts. |
-| <img src="Pages/admin_pages/Screenshot%202025-12-18%20122048.png" alt="Admin Categories" width="920" style="border:1px solid #e5e7eb;border-radius:10px;"> | **Admin (Categories)** — create and organize categories to keep data tidy and consistent. |
+- Landing — instant overview with a clear CTA
+	<img src="Pages/website/landpage.png" alt="Landing" width="100%">
+
+- Login — secure email/password with validation
+	<img src="Pages/website/login.png" alt="Login" width="100%">
+
+- Dashboard — quick read of income, expenses, and balance
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121755.png" alt="Dashboard" width="100%">
+
+- Transactions — searchable list with filters and quick actions
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121814.png" alt="Transactions" width="100%">
+
+- Add/Edit — choose category/type, set amount and notes
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121828.png" alt="Add/Edit" width="100%">
+
+- Analytics — clear charts for spending insights
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121849.png" alt="Analytics" width="100%">
+
+- Profile — manage details and upload an avatar
+	<img src="Pages/user_pages/Screenshot%202025-12-18%20121908.png" alt="Profile" width="100%">
+
+- Admin (Users) — manage accounts and roles
+	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122024.png" alt="Admin Users" width="100%">
+
+- Admin (Categories) — organize and maintain categories
+	<img src="Pages/admin_pages/Screenshot%202025-12-18%20122048.png" alt="Admin Categories" width="100%">
 
 ---
 
