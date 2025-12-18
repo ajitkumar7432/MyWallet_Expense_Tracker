@@ -1,83 +1,13 @@
-# 🚂 Railway.app Deployment Guide - MyWallet Expense Tracker
+> This guide is now summarized. Follow the README and use the same production JAR.
 
-Complete guide to deploy your Spring Boot + React + MySQL application on Railway.app
+# 🚂 Railway (Short)
 
----
+1) Create project from GitHub repo  
+2) Add MySQL or PostgreSQL service  
+3) Set `SPRING_DATASOURCE_*`, mail vars  
+4) Build React → package Spring Boot → run the JAR  
 
-## 📋 Prerequisites
-
-- ✅ GitHub account with MyWallet_Expense_Tracker repository
-- ✅ Gmail account (for email functionality)
-- ✅ Your code already pushed to GitHub
-
----
-
-## 🚀 Step-by-Step Deployment
-
-### **Step 1: Create Railway Account**
-
-1. Go to [Railway.app](https://railway.app/)
-2. Click **"Start a New Project"** or **"Login with GitHub"**
-3. Authorize Railway to access your GitHub account
-4. You'll get **$5 free credit per month** (no credit card required initially)
-
----
-
-### **Step 2: Create New Project**
-
-1. Click **"New Project"**
-2. Select **"Deploy from GitHub repo"**
-3. Choose **`MyWallet_Expense_Tracker`** repository
-4. Railway will automatically detect it as a Java project
-
----
-
-### **Step 3: Add MySQL Database**
-
-1. In your project dashboard, click **"+ New"**
-2. Select **"Database"** → **"Add MySQL"**
-3. Railway will create a MySQL database instance
-4. Click on the MySQL service to see connection details
-
----
-
-### **Step 4: Configure Environment Variables**
-
-Click on your **Spring Boot service** → Go to **"Variables"** tab
-
-Add these variables:
-
-```bash
-# Database Configuration (Railway provides these automatically)
-SPRING_DATASOURCE_URL=mysql://${{MYSQLHOST}}:${{MYSQLPORT}}/${{MYSQLDATABASE}}
-SPRING_DATASOURCE_USERNAME=${{MYSQLUSER}}
-SPRING_DATASOURCE_PASSWORD=${{MYSQLPASSWORD}}
-DATABASE_PLATFORM=org.hibernate.dialect.MySQL8Dialect
-
-# Email Configuration (Gmail App Password)
-MAIL_USERNAME=your-email@gmail.com
-MAIL_PASSWORD=your-16-digit-app-password
-
-# JWT Secret (generate a random string)
-JWT_SECRET=your-super-secret-jwt-key-min-256-bits
-
-# Server Configuration
-SERVER_PORT=${{PORT}}
-SPRING_PROFILES_ACTIVE=prod
-```
-
-**Note:** Railway automatically injects MySQL connection variables (`MYSQLHOST`, `MYSQLPORT`, etc.) - you just reference them!
-
----
-
-### **Step 5: Get Gmail App Password**
-
-1. Go to [Google Account Security](https://myaccount.google.com/security)
-2. Enable **2-Step Verification** (if not already enabled)
-3. Go to **App Passwords**: https://myaccount.google.com/apppasswords
-4. Select **"Mail"** and **"Other (Custom name)"** → Enter "MyWallet"
-5. Click **Generate** → Copy the 16-digit password
-6. Paste it in Railway's `MAIL_PASSWORD` variable
+See [README.md](./README.md) → Quick Commands / Config.
 
 ---
 

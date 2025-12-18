@@ -1,22 +1,30 @@
-# 💰 MyWallet — Expense Tracker (Spring Boot + React)
+<div align="center">
 
-Full‑stack personal finance tracker built with **Spring Boot 3** and **React 18**. Production flow packages the React build into Spring Boot so the app can be served from a single executable JAR.
+<img src="frontend/src/assets/images/logo.png" alt="MyWallet Logo" height="84" />
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+# MyWallet — Expense Tracker
+
+Smart, simple personal finance — built with **Spring Boot 3** and **React 18**. One‑command dev, one‑jar production.
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Java](https://img.shields.io/badge/Java-17-orange.svg)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.1-brightgreen.svg)
 ![React](https://img.shields.io/badge/React-18.2.0-blue.svg)
-![MySQL](https://img.shields.io/badge/MySQL-8.x-blue.svg)
+![Build](https://img.shields.io/badge/Build-Maven%20%2B%20npm-6f42c1.svg)
+
+<a href="#-quick-commands"><b>Run Locally</b></a> • <a href="#-quick-commands"><b>Production JAR</b></a>
+
+</div>
 
 ---
 
-## ✨ Highlights
+## ✨ At a Glance
 
-- 🔐 JWT auth, password reset via email
-- 💸 Track income/expenses with categories and budgets
-- 📊 Dashboard with charts and summaries
-- 👤 Profile + image upload
-- 🌙 Light/Dark themes; responsive UI
+- 🔐 Secure auth (JWT), password reset via email
+- 💸 Track income/expenses with categories + budgets
+- 📊 Dashboard charts and monthly summaries
+- 👤 Profile with avatar upload
+- 🌙 Light/Dark themes, fully responsive
 
 ---
 
@@ -49,27 +57,14 @@ Full‑stack personal finance tracker built with **Spring Boot 3** and **React 1
 
 ---
 
-## 📦 Tech Stack
+## 🧰 Tech
 
-- **Backend:** Spring Boot, Spring Security, JWT, JPA/Hibernate, JavaMail
-- **DB:** MySQL (local) • PostgreSQL/MySQL (production)
-- **Frontend:** React, React Router, Axios, Recharts, React Hook Form
-- **Build:** Maven, npm
+- Backend: Spring Boot, Spring Security, JPA/Hibernate, JavaMail
+- Frontend: React, React Router, Axios, Recharts
+- Database: MySQL (local), PostgreSQL/MySQL (prod)
+- Build: Maven + npm
 
----
-
-## ⚙️ Prerequisites
-
-- Java 17+
-- Node.js 18+
-- Maven (or use `mvnw` wrapper)
-- MySQL running locally (for dev)
-
-Create the dev database:
-
-```sql
-CREATE DATABASE expensetracker;
-```
+Create dev DB (MySQL): `CREATE DATABASE expensetracker;`
 
 ---
 
@@ -110,53 +105,24 @@ App runs at `http://localhost:8080`.
 
 ---
 
-## 🔧 Configuration (env vars)
+## 🔧 Config (env vars)
 
-Prefer environment variables instead of editing `application.properties`:
-
-```powershell
-$env:SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/expensetracker"
-$env:SPRING_DATASOURCE_USERNAME="root"
-$env:SPRING_DATASOURCE_PASSWORD="yourpassword"
-$env:SPRING_MAIL_USERNAME="your_email@gmail.com"
-$env:SPRING_MAIL_PASSWORD="your_gmail_app_password"
-$env:APP_VERIFICATIONCODEEXPIRATIONMS="60000"
-```
-
-For PostgreSQL in production, set:
+Use env vars instead of editing `application.properties`.
 
 ```powershell
-$env:SPRING_DATASOURCE_URL="jdbc:postgresql://HOST:5432/DBNAME"
-$env:SPRING_DATASOURCE_USERNAME="USER"
-$env:SPRING_DATASOURCE_PASSWORD="PASSWORD"
+# MySQL local
+$env:SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/expensetracker"; $env:SPRING_DATASOURCE_USERNAME="root"; $env:SPRING_DATASOURCE_PASSWORD="yourpassword"
+
+# Mail (for password reset)
+$env:SPRING_MAIL_USERNAME="your_email@gmail.com"; $env:SPRING_MAIL_PASSWORD="your_gmail_app_password"
+
+# Optional
+$env:SERVER_PORT="8080"; $env:APP_USER_PROFILE_UPLOAD_DIR="./uploads/user/profile"
 ```
 
-Optional:
-
-```powershell
-$env:SERVER_PORT="8080"
-$env:APP_USER_PROFILE_UPLOAD_DIR="./uploads/user/profile"
-```
+PostgreSQL (prod): `SPRING_DATASOURCE_URL=jdbc:postgresql://HOST:5432/DB` with user/password.
 
 ---
-
-## 🧪 Useful Commands
-
-```powershell
-# Backend (dev)
-cd backend
-.\mvnw.cmd spring-boot:run
-
-# Backend tests
-.\mvnw.cmd test
-
-# Frontend install
-cd ..\frontend
-npm ci
-
-# Frontend dev
-npm start
-```
 
 ---
 

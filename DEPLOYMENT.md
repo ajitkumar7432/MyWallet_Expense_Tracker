@@ -1,82 +1,15 @@
-# 🚀 MyWallet Deployment Guide - Render.com
+> This guide is deprecated. To keep the repo clean and easy to grasp, deployment instructions now live in a single place.
 
-## Deploy to Render.com - **FREE FOREVER** ⭐
+# 📦 Deployment
 
-**Render.com** offers a **100% free tier that never expires** - perfect for your full-stack Spring Boot + React application!
+See the short “Quick Commands” and “Config” sections in the root [README.md](./README.md). They cover local dev and production JAR.
 
-### ✅ Why Render.com?
+If you want a managed cloud:
 
-- **FREE Forever**: No credit card required, no expiration
-- **PostgreSQL Database**: 1GB free database included
-- **Java Support**: Native Spring Boot support
-- **Auto HTTPS**: Free SSL certificates
-- **GitHub Integration**: Auto-deploy on every push
-- **Trusted**: Used by 500,000+ developers
-- **750 Hours/Month**: Enough to run your app 24/7
+- Render (free tier) — create a Web Service and PostgreSQL DB, set env vars, and run the production JAR.
+- Railway — provision MySQL/PostgreSQL, set env vars, and run the production JAR.
 
-**Only Limitation**: App sleeps after 15 minutes of inactivity (wakes in ~30 seconds when accessed)
-
----
-
-## 📋 Step-by-Step Deployment (20 Minutes)
-
-### **Step 1: Push Code to GitHub**
-
-Open PowerShell and run:
-
-```powershell
-cd "d:\Extras\Fullstack-Expense-Tracker-main"
-git init
-git add .
-git commit -m "Initial commit - MyWallet for Render"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/mywallet.git
-git push -u origin main
-```
-
-_(Replace `YOUR_USERNAME` with your GitHub username)_
-
----
-
-### **Step 2: Create Render Account**
-
-1. Go to **https://render.com/**
-2. Click **"Get Started"**
-3. Click **"Sign Up with GitHub"**
-4. Authorize Render to access your repositories
-5. **No credit card required!** ✅
-
----
-
-### **Step 3: Create PostgreSQL Database**
-
-1. Click **"New +"** → **"PostgreSQL"**
-2. Fill in:
-   - **Name**: `mywallet-db`
-   - **Database**: `mywallet`
-   - **User**: `mywallet`
-   - **Region**: Choose closest to you
-   - **Plan**: **Free** ✅
-3. Click **"Create Database"**
-4. Wait 2-3 minutes for database to provision
-5. **Important**: Copy the **Internal Database URL** from the database info page
-
----
-
-### **Step 4: Create Web Service**
-
-1. Click **"New +"** → **"Web Service"**
-2. Click **"Build and deploy from a Git repository"**
-3. Click **"Connect"** next to your GitHub repository
-4. Configure:
-
-   **Basic Settings:**
-
-   - **Name**: `mywallet-app`
-   - **Region**: Same as database
-   - **Branch**: `main`
-   - **Root Directory**: Leave empty
-   - **Runtime**: **Java**
+All platform-specific steps are straightforward variations of the same build/run flow documented in README.
 
    **Build Settings:**
 
