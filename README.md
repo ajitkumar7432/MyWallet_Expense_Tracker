@@ -30,30 +30,30 @@ Smart, simple personal finance — built with **Spring Boot 3** and **React 18**
 
 ## 🖼️ Screenshots
 
-- Landing — first impression and CTA  
-	![Landing](Pages/website/landpage.png)
+- Landing — instant overview with a clear CTA  
+  ![Landing](Pages/website/landpage.png)
 
 - Login — secure email/password with validation  
-	![Login](Pages/website/login.png)
+  ![Login](Pages/website/login.png)
 
 - Dashboard — quick income/expense summary  
-	![Dashboard](Pages/user_pages/Screenshot%202025-12-18%20121755.png)
+  ![Dashboard](Pages/user_pages/Screenshot%202025-12-18%20121755.png)
 
 - Transactions — searchable list with filters  
-	![Transactions](Pages/user_pages/Screenshot%202025-12-18%20121814.png)
+  ![Transactions](Pages/user_pages/Screenshot%202025-12-18%20121814.png)
 
 - Add/Edit — category, type, amount, note  
-	![Add/Edit](Pages/user_pages/Screenshot%202025-12-18%20121828.png)
+  ![Add/Edit](Pages/user_pages/Screenshot%202025-12-18%20121828.png)
 
 - Analytics — charts for spending insights  
-	![Analytics](Pages/user_pages/Screenshot%202025-12-18%20121849.png)
+  ![Analytics](Pages/user_pages/Screenshot%202025-12-18%20121849.png)
 
 - Profile — user details and avatar upload  
-	![Profile](Pages/user_pages/Screenshot%202025-12-18%20121908.png)
+  ![Profile](Pages/user_pages/Screenshot%202025-12-18%20121908.png)
 
 - Admin — users and categories management  
-	![Admin Users](Pages/admin_pages/Screenshot%202025-12-18%20122024.png)
-	![Admin Categories](Pages/admin_pages/Screenshot%202025-12-18%20122048.png)
+  ![Admin Users](Pages/admin_pages/Screenshot%202025-12-18%20122024.png)
+  ![Admin Categories](Pages/admin_pages/Screenshot%202025-12-18%20122048.png)
 
 ---
 
@@ -68,38 +68,16 @@ Create dev DB (MySQL): `CREATE DATABASE expensetracker;`
 
 ---
 
-## 🚀 Quick Commands
+## 🚀 How I run it
 
-Short and simple commands you’ll actually use.
+Local dev (two terminals):
+- Backend API: from `backend` → `.\mvnw.cmd spring-boot:run`
+- Frontend UI: from `frontend` → `npm install` (first time) then `npm start`
 
-### Local dev
-
-```powershell
-# Backend API
-cd backend
-.\mvnw.cmd spring-boot:run
-
-# Frontend UI (new terminal)
-cd ..\frontend
-npm install
-npm start
-```
-
-### Production (single JAR)
-
-```powershell
-# Build React
-cd frontend
-npm ci
-npm run build
-
-# Package Spring Boot (bundles React into static/)
-cd ..\backend
-.\mvnw.cmd clean package -DskipTests
-
-# Run
-java -jar target\expenseTracker-0.0.1-SNAPSHOT.jar
-```
+Production (single JAR):
+- Build React: from `frontend` → `npm ci` then `npm run build`
+- Package API: from `backend` → `.\mvnw.cmd clean package -DskipTests`
+- Run app: from `backend` → `java -jar target\expenseTracker-0.0.1-SNAPSHOT.jar`
 
 App runs at `http://localhost:8080`.
 

@@ -11,22 +11,22 @@ If you want a managed cloud:
 
 All platform-specific steps are straightforward variations of the same build/run flow documented in README.
 
-   **Build Settings:**
+**Build Settings:**
 
-   - **Build Command**:
+- **Build Command**:
 
-     ```
-     cd frontend && npm install && npm run build && cd ../backend && mvn clean package -DskipTests
-     ```
+  ```
+  cd frontend && npm install && npm run build && cd ../backend && mvn clean package -DskipTests
+  ```
 
-   - **Start Command**:
-     ```
-     cd backend && java -jar target/expenseTracker-0.0.1-SNAPSHOT.jar
-     ```
+- **Start Command**:
+  ```
+  cd backend && java -jar target/expenseTracker-0.0.1-SNAPSHOT.jar
+  ```
 
-   **Plan:**
+**Plan:**
 
-   - Select **"Free"** ✅
+- Select **"Free"** ✅
 
 ---
 
